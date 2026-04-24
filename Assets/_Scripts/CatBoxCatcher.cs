@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class CatBoxCatcher : MonoBehaviour
@@ -11,32 +12,35 @@ public class CatBoxCatcher : MonoBehaviour
     public float Deceleration;
     public float AccelerationDamping;
 
+    public UnityEvent OnCatCaught;
+
     public bool HasControl = true;
 
     private Vector2 moveInput;
     private float currentHorVelocity = 0;
-    [SerializeField] private CharacterController characterController;
+    [SerializeField] private Rigidbody characterController;
 
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
         moveAction = inputActions.Player.Move;
-        if(!characterController) characterController = GetComponent<CharacterController>();
+        if(!characterController) characterController = GetComponent<Rigidbody>();
     }
     void Start()
     {
         
     }
 
+    public void CatCaught(GameObject cat)
+    {
+        Debug.Log($"Object caught in box: {cat.name}");
+        OnCatCaught.Invoke();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        moveInput = moveAction.ReadValue<Vector2>();
-
-        if(HasControl)
-        {
-            HandleMovement();
-        }
+        moveInput = moveAction.ReadValue<Vector2>();       
     }
 
     void HandleMovement()
@@ -47,14 +51,30 @@ public class CatBoxCatcher : MonoBehaviour
 
         if(!stopping)
         {
-            currentHorVelocity += moveSign * Acceleration * Time.deltaTime;            
+            currentHorVelocity += moveSign * Acceleration * Time.fixedDeltaTime;            
         }
         else
         {
-            currentHorVelocity -= Mathf.Min(currentHorVelocity, Mathf.Sign(currentHorVelocity) * Deceleration * Time.deltaTime);
+            float deceleration = Mathf.Sign(currentHorVelocity) * Deceleration * Time.fixedDeltaTime;
+            if(Mathf.Sign(deceleration) > 0)
+            {
+                currentHorVelocity -= Mathf.Min(currentHorVelocity, deceleration); 
+            }
+            else
+            {
+                currentHorVelocity -= Mathf.Max(currentHorVelocity, deceleration);
+            }            
         }
 
-        characterController.Move(new Vector2(currentHorVelocity * Time.deltaTime, 0f));
+        characterController.MovePosition(characterController.position + Vector3.right * currentHorVelocity * Time.fixedDeltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        if (HasControl)
+        {
+            HandleMovement();
+        }
     }
 
     private void OnEnable()
