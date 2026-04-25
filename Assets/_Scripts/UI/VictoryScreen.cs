@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class TitleScreen : UIScreen
+public class VictoryScreen : UIScreen
 {
-    
-    public override void ShowScreen(float showElemsDelay = 0f)
+    public override void ShowScreen(float showElemsDelay = 0)
     {
         base.ShowScreen(showElemsDelay);
-    }    
+    }
 
     public override void HideScreen(float hidePanelDelay)
     {

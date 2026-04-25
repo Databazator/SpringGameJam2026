@@ -11,4 +11,19 @@ public class TutorialScreen : UIScreen
     {
         base.HideScreen(hidePanelDelay);
     }
+
+    public override void ShowElementsSequence()
+    {
+        base.ShowElementsSequence();
+    }
+
+    public override void HideElementsSequence()
+    {
+        base.HideElementsSequence();
+    }
+
+    public override void ResetElements()
+    {
+        base.ResetElements();
+    }
 }

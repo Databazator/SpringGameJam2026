@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3386837695442176516}
   - component: {fileID: 2474558067950394590}
+  - component: {fileID: 3666925000664990564}
   m_Layer: 0
   m_Name: CatSmol
   m_TagString: Untagged
@@ -77,12 +78,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1321389e7de6a584a85ae28529b87d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatSpinner
+  SpinOnStart: 1
   CatVisualPivot: {fileID: 5160355398520505253}
   SpinSide: -1
   SpinDuration: 2
-  SpinRevolutions: 10
-  RiseMult: 0.05
+  SpinRevolutions: 8
+  RiseMult: 0.025
   RiseTimes: 3
+--- !u!114 &3666925000664990564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2351687177745455765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3e75a90d444544aa764130db7f74d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &3548936895489444145
 GameObject:
   m_ObjectHideFlags: 0
