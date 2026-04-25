@@ -4,6 +4,7 @@ using DG.Tweening.Plugins.Options;
 using MarkusSecundus.Utils.Extensions;
 using MarkusSecundus.Utils.Primitives;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class CatController : MonoBehaviour
@@ -15,6 +16,8 @@ public class CatController : MonoBehaviour
     private InputSystem_Actions _actions;
     private InputAction _moveAction;
     private float _input;
+
+    public UnityEvent OnDeath;
 
     [SerializeField] float _airNudgeForce = 10f;
     [SerializeField] float _airNudgeCooldown = 0.25f;
@@ -81,7 +84,17 @@ public class CatController : MonoBehaviour
         _spinner.SetPreparation(intensity);
     }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            Debug.Log("Cat Death");
+            OnDeath.Invoke();
+            SetAirNudgeControl(false);
+        }
+    } 
+
+    private void OnTriggerEnter2D(Collider2D collision)
 	{
         var fish = collision.GetComponentInParent<FishController>();
         if (fish) DoEatFish(fish);

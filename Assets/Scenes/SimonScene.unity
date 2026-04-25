@@ -343,18 +343,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 6191184655734341778}
     m_Modifications:
     - target: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
       objectReference: {fileID: 0}
@@ -394,29 +382,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2665807515482493136, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
       propertyPath: m_Name
       value: FullCatSmol
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247894924873814211, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: _airNudgeForce
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247894924873814211, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: _airNudgeCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247894924873814211, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: _airNudgeScalePopMult
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7247894924873814211, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
-      propertyPath: _airNudgeScalePopDuration
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
