@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5160355398520505253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3386837695442176516}
   - component: {fileID: 2474558067950394590}
   - component: {fileID: 3666925000664990564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatSmol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,8 +60,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.02, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5160355398520505253}
   m_Father: {fileID: 0}
@@ -81,10 +81,35 @@ MonoBehaviour:
   SpinOnStart: 1
   CatVisualPivot: {fileID: 5160355398520505253}
   SpinSide: -1
-  SpinDuration: 2
-  SpinRevolutions: 8
-  RiseMult: 0.025
-  RiseTimes: 3
+  IdleSpin:
+    SpinDuration: 2
+    SpinRevolutions: 5
+    RiseMultiplier: 0.05
+    RiseTimes: 4
+  IdleRestDuration:
+    Min: 3
+    Max: 6
+  PreparationSpin:
+    Min:
+      SpinDuration: 2
+      SpinRevolutions: 2
+      RiseMultiplier: 0.05
+      RiseTimes: 4
+    Max:
+      SpinDuration: 2
+      SpinRevolutions: 3
+      RiseMultiplier: 0.1
+      RiseTimes: 4
+  FlyingSpin:
+    SpinDuration: 2
+    SpinRevolutions: 5
+    RiseMultiplier: 0.05
+    RiseTimes: 5
+  CurrentSpin:
+    SpinDuration: 0
+    SpinRevolutions: 0
+    RiseMultiplier: 0
+    RiseTimes: 0
 --- !u!114 &3666925000664990564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +133,7 @@ GameObject:
   - component: {fileID: 343115296200842781}
   - component: {fileID: 8080723278802535606}
   - component: {fileID: 2485082852416030420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CatSmolMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
