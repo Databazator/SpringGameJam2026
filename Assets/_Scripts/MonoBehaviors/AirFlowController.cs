@@ -1,20 +1,20 @@
-using TreeEditor;
+using MarkusSecundus.Utils.Datastructs;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
 /// <summary>
 /// Overrides linear velocity for all rigid bodies which enters air flow. Force vector at any point is
-/// evaluated as spoline tangent time strength.
+/// evaluated as spline tangent times strength.
 /// </summary>
 [RequireComponent(typeof(SplineContainer))]
 public class AirFlowController : MonoBehaviour
 {
-    private static int flowCounter = 0;
-
     private SplineContainer splineContainer;
-
-    public int ID { get; } = flowCounter + 1;
+    private IDictionary<Rigidbody2D, List<Pusher>> affectedBodies
+        = new Dictionary<Rigidbody2D, List<Pusher>>();
 
     /// <summary>
     /// Thickness of the flow along the spline.
@@ -43,7 +43,7 @@ public class AirFlowController : MonoBehaviour
         {
             splineContainer.Evaluate(t / length, out float3 position, out float3 tangent, out _);
 
-            var gameObject = new GameObject();
+            var gameObject = new GameObject("Pusher");
             gameObject.transform.SetParent(transform);
             gameObject.transform.position = position.ToVector2();
 
@@ -51,8 +51,34 @@ public class AirFlowController : MonoBehaviour
             collider.isTrigger = true;
             collider.radius = Thickness / 2.0f;
 
-            var pusher = Pusher.Create(gameObject, this);
+            var pusher = gameObject.AddComponent<Pusher>();
             pusher.Direction = tangent.ToVector2();
+            pusher.OnAreaEnter += Pusher_OnAreaEnter;
+            pusher.OnAreaExit += Pusher_OnAreaExit;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (var (rigidBody, pushers) in affectedBodies)
+        {
+            rigidBody.AddForce(pushers.Last().Direction * Strength);
+        }
+    }
+
+    private void Pusher_OnAreaEnter(Pusher pusher, Rigidbody2D rigidBody)
+    {
+        if (!affectedBodies.TryAdd(rigidBody, new List<Pusher>() { pusher }))
+            affectedBodies[rigidBody].Add(pusher);
+    }
+
+    private void Pusher_OnAreaExit(Pusher pusher, Rigidbody2D rigidBody)
+    {
+        // O(n) remove is not ideal, better solution would probably be to use `LinkedList`
+        // but it should be ok in this case
+        affectedBodies[rigidBody].Remove(pusher);
+
+        if (affectedBodies[rigidBody].IsEmpty())
+            affectedBodies.Remove(rigidBody);
     }
 }
