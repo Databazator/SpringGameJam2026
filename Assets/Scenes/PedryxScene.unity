@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78635174}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TempFocusPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.51, y: 11.725, z: -13.420454}
+  m_LocalPosition: {x: 16.509989, y: 13.065414, z: -13.420454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1480,6 +1480,14 @@ PrefabInstance:
     - target: {fileID: 7735653103205413849, guid: c7c52fb8c9e337c4aaa6ac4cc78ce253, type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735653103205413849, guid: c7c52fb8c9e337c4aaa6ac4cc78ce253, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893149289891323558, guid: c7c52fb8c9e337c4aaa6ac4cc78ce253, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
