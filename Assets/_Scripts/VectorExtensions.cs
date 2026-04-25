@@ -1,3 +1,5 @@
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -83,4 +85,20 @@ public static class Vector2Extensions
 
         return new Vector2(-cosAngle, sign * sinAngle) * vector.magnitude;
     }
+}
+
+/// <summary>
+/// Contains extension methods for <see cref="float3"/> class.
+/// </summary>
+public static class Float3Extensions
+{
+    /// <summary>
+    /// Converts <see cref="float3"/> to <see cref="Vector3"/>.
+    /// </summary>
+    public static Vector3 ToVector3(this float3 vector) => (Vector3)vector;
+
+    /// <summary>
+    /// Converts <see cref="float3"/> to <see cref="Vector2"/> truncating it in the process.
+    /// </summary>
+    public static Vector2 ToVector2(this float3 vector) => vector.ToVector3().Truncate();
 }
