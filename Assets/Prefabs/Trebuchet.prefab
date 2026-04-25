@@ -915,11 +915,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
   m_PrefabInstance: {fileID: 211682700062362611}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5002742376897546326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5160355398520505253, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-  m_PrefabInstance: {fileID: 211682700062362611}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8973988858168053687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1101,6 +1096,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8774567109893410162}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
+      propertyPath: visualPivot
+      value: 
+      objectReference: {fileID: 792205142080527555}
+    - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: _ballisticCurve.TimeStepCount
       value: 50
       objectReference: {fileID: 0}
@@ -1115,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <ProjectileStartPosition>k__BackingField
       value: 
-      objectReference: {fileID: 5002742376897546326}
+      objectReference: {fileID: 792205142080527555}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <AimingArmRotationRangeDegrees>k__BackingField
       value: 80

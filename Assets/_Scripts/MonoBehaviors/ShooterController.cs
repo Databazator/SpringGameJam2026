@@ -22,6 +22,9 @@ public class ShooterController : MonoBehaviour
     private TrebuchetAnimationController animationController;
     private TrebuchetAnimatorEvents animationEvents;
 
+    [SerializeField]
+    private Transform visualPivot;
+
     /// <summary>
     /// Projectile which could be shot. Projectile does not get automatically reloaded.
     /// </summary>
@@ -74,6 +77,7 @@ public class ShooterController : MonoBehaviour
     private void Awake()
     {
         Debug.Assert(ProjectileStartPosition != null);
+        Debug.Assert(visualPivot != null);
 
         animationController = GetComponentInParent<TrebuchetAnimationController>();
 
@@ -109,6 +113,7 @@ public class ShooterController : MonoBehaviour
         projectile.transform.position = ProjectileStartPosition.position.WithZ(projectile.transform.position.z);
         launched = false;
         animationEvents.ProjectileTransform = projectile.transform;
+        projectile.transform.SetParent(visualPivot, true);
     }
 
     [System.Serializable]
@@ -117,6 +122,7 @@ public class ShooterController : MonoBehaviour
 		public float TimeStep = 0.5f;
 		public int TimeStepCount = 10;
 	}
+
     [SerializeField] BallisticCurveConfig _ballisticCurve;
     private void HandleAim()
     {
