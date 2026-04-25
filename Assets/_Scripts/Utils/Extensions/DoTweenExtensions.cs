@@ -28,7 +28,7 @@ namespace MarkusSecundus.Utils.Extensions
             => DOTween.To(PureQuaternionPlugin.Plug(), () => joint.CurrentRotation, v => joint.SetTargetRotation(v), endValue, duration).SetTarget(joint).SetUpdate(UpdateType.Fixed);
 
 
-        //public static Tween DOFade(this Graphic self, float alphaEnd, float duration)=> DOTween.ToAlpha(() => self.color, a=>self.color = a, alphaEnd, duration);
+        public static Tween DOFade(this Graphic self, float alphaEnd, float duration)=> DOTween.ToAlpha(() => self.color, a=>self.color = a, alphaEnd, duration);
 
 		public static TweenerCore<Quaternion, Vector3, QuaternionOptions> DOTargetRotation(this JointRotationHelper joint, Vector3 endValue, float duration)
             => DOTween.To(() => joint.CurrentRotation, joint.SetTargetRotation, endValue, duration).SetTarget(joint).SetUpdate(UpdateType.Fixed);
