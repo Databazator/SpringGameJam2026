@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3014521949396575234}
   - component: {fileID: 3352943287329117365}
+  - component: {fileID: 2231289158606017114}
   m_Layer: 0
   m_Name: TestCatModel
   m_TagString: Untagged
@@ -45,12 +46,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1321389e7de6a584a85ae28529b87d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  SpinOnStart: 1
   CatVisualPivot: {fileID: 3456838445751545078}
-  SpinSide: 1
+  SpinSide: -1
   SpinDuration: 2
-  SpinRevolutions: 10
-  RiseMult: 0.05
+  SpinRevolutions: 8
+  RiseMult: 0.025
   RiseTimes: 4
+--- !u!114 &2231289158606017114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471805600909836873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3e75a90d444544aa764130db7f74d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatSpinSequence
 --- !u!1 &4450709212900552060
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
 
         if (!SkipUI)
         {
+            // start with opaque title background
+            TitleScreen.GetComponent<CanvasGroup>().alpha = 1.0f;
             ShowScreen(TitleScreen);
         }
     }
