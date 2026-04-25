@@ -19,6 +19,9 @@ public class ShooterController : MonoBehaviour
 
     private InputSystem_Actions Input;
     private LineRenderer lineRenderer;
+    private TrebuchetAnimationController animationController;
+    private TrebuchetAnimatorEvents animationEvents;
+
     /// <summary>
     /// Projectile which could be shot. Projectile does not get automatically reloaded.
     /// </summary>
@@ -44,6 +47,9 @@ public class ShooterController : MonoBehaviour
         }
     }
 
+    [field: SerializeField]
+    public Transform ProjectileStartPosition { get; private set; }
+
     /// <summary>
     /// Maximum magnitude of the aiming arm vector.
     /// </summary>
@@ -67,12 +73,20 @@ public class ShooterController : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Assert(ProjectileStartPosition != null);
+
+        animationController = GetComponentInParent<TrebuchetAnimationController>();
+
+        animationEvents = transform.parent.GetComponentInChildren<TrebuchetAnimatorEvents>();
+        animationEvents.OnProjectileLaunch += AnimationEvents_OnProjectileLaunch;
+
         Input = new InputSystem_Actions();
         Input.Enable();
 
         lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, transform.position.WithZ(lineZ));
+        lineRenderer.positionCount += 1;
+        lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position.WithZ(0.0f));
+        lineRenderer.positionCount += _ballisticCurve.TimeStepCount - 1;
 
         ResetProjectile();
     }
@@ -92,8 +106,9 @@ public class ShooterController : MonoBehaviour
         projectile.bodyType = RigidbodyType2D.Kinematic;
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
-        projectile.transform.position = transform.position.WithZ(Projectile.transform.position.z);
+        projectile.transform.position = ProjectileStartPosition.position.WithZ(projectile.transform.position.z);
         launched = false;
+        animationEvents.ProjectileTransform = projectile.transform;
     }
 
     [System.Serializable]
@@ -115,13 +130,12 @@ public class ShooterController : MonoBehaviour
 
         //Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
         //lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
-        lineRenderer.positionCount = _ballisticCurve.TimeStepCount;
 		float angle = Mathf.Atan2(aimingArmVector.y, aimingArmVector.x) + Mathf.PI;
-		for (int t=1; t < _ballisticCurve.TimeStepCount; ++t)
+		for (int t = 1; t < _ballisticCurve.TimeStepCount; ++t)
         {
             float time = t * _ballisticCurve.TimeStep;
             Vector2 pos = GetBallisticCurvePoint(transform.position.Truncate(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * projectile.gravityScale, time);
-            lineRenderer.SetPosition(t, pos);
+            lineRenderer.SetPosition(lineRenderer.positionCount - _ballisticCurve.TimeStepCount + t - 1, pos);
         }
     }
 
@@ -134,11 +148,15 @@ public class ShooterController : MonoBehaviour
         if (!Input.Catapult.Toggle.WasReleasedThisFrame())
             return;
 
-		Projectile.bodyType = RigidbodyType2D.Dynamic;
+        animationController.PlayTrebuchetFireAnim();
+    }
+
+    private void AnimationEvents_OnProjectileLaunch(object sender, System.EventArgs e)
+    {
+        Projectile.bodyType = RigidbodyType2D.Dynamic;
         Projectile.AddForce(-aimingArmVector * StrengthMultiplier, ForceMode2D.Impulse);
 
         aimingArmVector = Vector2.zero;
-        lineRenderer.SetPosition(1, transform.position.Truncate());
         launched = true;
     }
 }
