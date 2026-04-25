@@ -110,14 +110,14 @@ public class ShooterController : MonoBehaviour
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.Catapult.Aim.ReadValue<Vector2>());
         aimingArmVector = (mousePosition.Truncate() - transform.position.Truncate())
-            .ClampMagnitude(MaxAimingArmLength)
-            .ClampConeX(AimingArmRotationRangeDegrees);
+            .ClampMagnitude(MaxAimingArmLength);
+            //.ClampConeX(AimingArmRotationRangeDegrees);
 
         //Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
         //lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
         lineRenderer.positionCount = _ballisticCurve.TimeStepCount;
 		float angle = Mathf.Atan2(aimingArmVector.y, aimingArmVector.x) + Mathf.PI;
-        Debug.Log($"Angle: {angle} ({angle*Mathf.Rad2Deg})", this);
+        Debug.Log($"Aiming arm: {aimingArmVector}", this);
 		for (int t=1; t < _ballisticCurve.TimeStepCount; ++t)
         {
             float time = t * _ballisticCurve.TimeStep;
@@ -135,7 +135,8 @@ public class ShooterController : MonoBehaviour
         if (!Input.Catapult.Toggle.WasReleasedThisFrame())
             return;
 
-        Projectile.bodyType = RigidbodyType2D.Dynamic;
+		Debug.Log($"SHOOT - Aiming arm: {aimingArmVector}", this);
+		Projectile.bodyType = RigidbodyType2D.Dynamic;
         Projectile.AddForce(-aimingArmVector * StrengthMultiplier, ForceMode2D.Impulse);
 
         aimingArmVector = Vector2.zero;
