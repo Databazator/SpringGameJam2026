@@ -1,3 +1,4 @@
+using EasyButtons;
 using UnityEngine;
 
 public class TrebuchetAnimationController : MonoBehaviour
@@ -9,6 +10,7 @@ public class TrebuchetAnimationController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
+    [Button]
     [ContextMenu("Fire")]
     public void PlayTrebuchetFireAnim()
     {
