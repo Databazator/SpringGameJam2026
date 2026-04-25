@@ -1330,6 +1330,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5270562241701302233, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: MaxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270562241701302233, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: ClipSpeedAtMaxSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.93

@@ -12,6 +12,9 @@ public class CatBoxCatcher : MonoBehaviour
     public Transform CatcherVisuals;
     private Tweener SideTweener;
 
+    public float ClipSpeedAtMaxSpeed;  
+
+    [Header("Movement")]
     public float MaxSpeed;
     public float Acceleration;
     public float Deceleration;
@@ -62,14 +65,21 @@ public class CatBoxCatcher : MonoBehaviour
             lastInputSide = inputSide;
         }
 
-        if(moveInput.x != 0)
+        float speedFactor = Mathf.Abs(currentHorVelocity) / MaxSpeed;
+
+        if (Mathf.Abs(currentHorVelocity) > 0f)
         {
             Animator.SetBool("IsWalking", true);
+
+            Animator.speed = Mathf.Lerp(1f, ClipSpeedAtMaxSpeed, speedFactor);
         }
         else
         {
             Animator.SetBool("IsWalking", false);
+
+            Animator.speed = 1f;
         }        
+        
     }
 
     void HandleMovement()
