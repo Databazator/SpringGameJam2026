@@ -482,6 +482,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -411
       objectReference: {fileID: 0}
+    - target: {fileID: 5272560531725445739, guid: 93eb77f695e9d1a4b90c9124c98bc517, type: 3}
+      propertyPath: SkipUI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6533971177947886667, guid: 93eb77f695e9d1a4b90c9124c98bc517, type: 3}
       propertyPath: m_text
       value: Assets Successfully Secured
@@ -630,14 +634,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.91
       objectReference: {fileID: 0}
@@ -681,9 +677,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxCatcher
       objectReference: {fileID: 0}
-    - target: {fileID: 6745379114515549138, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
+    - target: {fileID: 7209884190832465961, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
