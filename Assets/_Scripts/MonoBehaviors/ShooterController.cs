@@ -28,9 +28,7 @@ public class ShooterController : MonoBehaviour
         set
         {
             projectile = value;
-            projectile.bodyType = RigidbodyType2D.Kinematic;
-            projectile.linearVelocity = Vector2.zero;
-            projectile.angularVelocity = 0.0f;
+            ResetProjectile();
         }
     }
 
@@ -58,14 +56,25 @@ public class ShooterController : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(0, transform.position.WithZ(lineZ));
 
-        // setter enforces desired physical properties
-        Projectile = projectile;
+        ResetProjectile();
     }
 
     private void Update()
     {
         HandleAim();
         HandleShooting();
+    }
+
+    /// <summary>
+    /// Resets projectile to shooter's starting point and reset it's physical properties.
+    /// </summary>
+    [ContextMenu("Reset Projectile")]
+    public void ResetProjectile()
+    {
+        projectile.bodyType = RigidbodyType2D.Kinematic;
+        projectile.linearVelocity = Vector2.zero;
+        projectile.angularVelocity = 0.0f;
+        projectile.transform.position = transform.position.WithZ(Projectile.transform.position.z);
     }
 
     private void HandleAim()

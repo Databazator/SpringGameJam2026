@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxCatcher
       objectReference: {fileID: 0}
+    - target: {fileID: 6745379114515549138, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -157,5 +157,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShooterController
   projectile: {fileID: 0}
   <MaxAimingArmLength>k__BackingField: 3
-  <AimingArmRotationRangeDegrees>k__BackingField: 45
-  <StrengthMultiplier>k__BackingField: 5
+  <AimingArmRotationRangeDegrees>k__BackingField: 60
+  <StrengthMultiplier>k__BackingField: 5.3
