@@ -52,12 +52,12 @@ namespace MarkusSecundus.Utils.Behaviors.Cosmetics
 
             gameObject.SetActive(true);
             Tween last = null;
-            foreach (var rend in GetComponentsInChildren<Graphic>(true))
+            foreach (var rend in GetComponentsInChildren<Graphic>(true))  
             {
                 rend.gameObject.SetActive(true);
                 rend.color = rend.color.With(a: alphaBegin);
 
-                var tween = last = rend.DOFade(alphaEnd, duration_seconds).SetEase(ease); 
+                var tween = last = rend.DOFade(alphaEnd, duration_seconds).SetEase(ease);
 				_tweens.Add(tween);
                 if (alphaEnd <= 0f) tween.onComplete += () => rend.gameObject.SetActive(false);
             }

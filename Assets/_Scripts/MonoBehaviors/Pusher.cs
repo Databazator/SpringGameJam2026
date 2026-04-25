@@ -1,26 +1,26 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// Pushes rigid bodies in certain direction by certain strength. Applies to rigid bodies whihc enters it's
+/// Event handler for pusher area events.
+/// </summary>
+/// <param name="target">Target which enters/leave pusher area.</param>
+/// <param name="direction">Pusher direction.</param>
+public delegate void PusherAreaEventHandler(Pusher sender, Rigidbody2D target);
+
+/// <summary>
+/// Pushes rigid bodies in certain direction by certain strength. Applies to rigid bodies which enters it's
 /// trigger area.
 /// </summary>
 public class Pusher : MonoBehaviour
 {
     /// <summary>
-    /// Counts number of active pushers for each flow.
+    /// Occurs when dynamic rigid body enters pusher area.
     /// </summary>
-    private static readonly IDictionary<(AirFlowController, Rigidbody2D), int> counter 
-        = new Dictionary<(AirFlowController, Rigidbody2D), int>();
-
-    public static Pusher Create(GameObject gameObject, AirFlowController airFlow)
-    {
-        var pusher = gameObject.AddComponent<Pusher>();
-        pusher.AirFlow = airFlow;
-
-        return pusher;
-    }
+    public event PusherAreaEventHandler OnAreaEnter;
+    /// <summary>
+    /// Occurs when dynamic rigid body leaves pusher area.
+    /// </summary>
+    public event PusherAreaEventHandler OnAreaExit;
 
     /// <summary>
     /// Push direction.
@@ -28,38 +28,13 @@ public class Pusher : MonoBehaviour
     [field: SerializeField]
     public Vector2 Direction { get; set; } = Vector2.right;
 
-    /// <summary>
-    /// Push strength (force vector magnitude).
-    /// </summary>
-    public float Strength => AirFlow.Strength;
-
-    /// <summary>
-    /// Associated air flow.
-    /// </summary>
-    [field: SerializeField]
-    public AirFlowController AirFlow { get; set; } = null;
-
-    private void Start()
-    {
-        Debug.Assert(AirFlow);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Rigidbody2D rigidbody = other.attachedRigidbody;
         if (!rigidbody || rigidbody.bodyType != RigidbodyType2D.Dynamic)
             return;
 
-        var constantForce = rigidbody.GetComponent<ConstantForce2D>();
-        if (!constantForce)
-            constantForce = rigidbody.AddComponent<ConstantForce2D>();
-
-        constantForce.force = Direction.normalized * Strength;
-
-        // cannot use `GetValueRefOrAddDefault` because that needs .NET 6
-        if (!counter.ContainsKey((AirFlow, rigidbody)))
-            counter.Add((AirFlow, rigidbody), 0);
-        counter[(AirFlow, rigidbody)]++;
+        OnAreaEnter?.Invoke(this, rigidbody);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -68,17 +43,6 @@ public class Pusher : MonoBehaviour
         if (!rigidbody || rigidbody.bodyType != RigidbodyType2D.Dynamic)
             return;
 
-        Debug.Assert(counter.ContainsKey((AirFlow, rigidbody)));
-        counter[(AirFlow, rigidbody)]--;
-        
-        Debug.Assert(counter[(AirFlow, rigidbody)] >= 0);
-
-        if (counter[(AirFlow, rigidbody)] == 0)
-        {
-            var constantForce = rigidbody.GetComponent<ConstantForce2D>();
-            Debug.Assert(constantForce);
-
-            constantForce.force = Vector2.zero;
-        }
+        OnAreaExit?.Invoke(this, rigidbody);
     }
 }
