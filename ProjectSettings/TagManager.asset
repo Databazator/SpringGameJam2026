@@ -35,7 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Environment
   - Ignore
   m_SortingLayers:
   - name: Default

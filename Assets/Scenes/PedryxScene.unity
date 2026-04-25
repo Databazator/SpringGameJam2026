@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78635174}
-  m_Layer: 10
+  m_Layer: 30
   m_Name: TempFocusPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.509989, y: 13.065414, z: -13.420454}
+  m_LocalPosition: {x: 16.51, y: 11.725, z: -13.420454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1396,6 +1396,14 @@ MonoBehaviour:
   _eatingFishScale: {x: 2, y: 4, z: 2}
   _fishScaleGain: 1.1
   _fishWeightGain: 1.1
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _airNudgeForce: 10
+  _airNudgeCooldown: 0.25
+  _airNudgeScalePopMult: 0.9
+  _airNudgeScalePopDuration: 0.25
+  HasAirControl: 1
 --- !u!1 &1790492373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,11 +1491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735653103205413849, guid: c7c52fb8c9e337c4aaa6ac4cc78ce253, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8893149289891323558, guid: c7c52fb8c9e337c4aaa6ac4cc78ce253, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
