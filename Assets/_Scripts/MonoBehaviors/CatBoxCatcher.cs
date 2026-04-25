@@ -11,7 +11,8 @@ public class CatBoxCatcher : MonoBehaviour
     public Animator Animator;
     public Transform CatcherVisuals;
     private Tweener SideTweener;
-
+    private Tweener ChestSideTweener;
+    public float ChangeHeadingDuration = 0.25f;
     public float ClipSpeedAtMaxSpeed;  
 
     [Header("Movement")]
@@ -23,6 +24,11 @@ public class CatBoxCatcher : MonoBehaviour
     public UnityEvent OnCatCaught;
 
     public bool HasControl = true;
+
+    [Header("BoxHitbox")]
+    public Transform ChestHitboxTransform;
+    public Transform ChestHitboxPositionTrack;
+    private float startChestHitboxRotation;
 
     private Vector2 moveInput;
     float lastInputSide;
@@ -37,7 +43,7 @@ public class CatBoxCatcher : MonoBehaviour
     }
     void Start()
     {
-        
+        startChestHitboxRotation = ChestHitboxTransform.localEulerAngles.z;
     }
 
     public void CatCaught(GameObject cat)
@@ -60,7 +66,13 @@ public class CatBoxCatcher : MonoBehaviour
             {
                 SideTweener.Kill();
             }
-            SideTweener = CatcherVisuals.DOScaleX(inputSide, 0.25f).SetEase(Ease.InOutQuad);
+            SideTweener = CatcherVisuals.DOScaleX(inputSide, ChangeHeadingDuration).SetEase(Ease.InOutQuad);
+
+            if(ChestSideTweener != null && ChestSideTweener.IsActive())
+            {
+                ChestSideTweener.Kill();
+            }
+            ChestSideTweener = ChestHitboxTransform.DOLocalRotate(new Vector3(0f, 0f, startChestHitboxRotation * inputSide), ChangeHeadingDuration);
 
             lastInputSide = inputSide;
         }
@@ -78,8 +90,10 @@ public class CatBoxCatcher : MonoBehaviour
             Animator.SetBool("IsWalking", false);
 
             Animator.speed = 1f;
-        }        
-        
+        }
+
+        //update chest hitbox
+        ChestHitboxTransform.position = ChestHitboxPositionTrack.position;
     }
 
     void HandleMovement()
