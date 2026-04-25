@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,6 +30,7 @@ public class CatBoxCatcher : MonoBehaviour
     public Transform ChestHitboxTransform;
     public Transform ChestHitboxPositionTrack;
     private float startChestHitboxRotation;
+    public float AnchorOffset = 5.6f;
 
     private Vector2 moveInput;
     float lastInputSide;
@@ -50,6 +52,30 @@ public class CatBoxCatcher : MonoBehaviour
     {
         Debug.Log($"Object caught in box: {cat.name}");
         OnCatCaught.Invoke();
+
+
+        //Add spring joint to cat so it stays in the box :3
+        Rigidbody2D catRb = cat.GetComponent<Rigidbody2D>();
+        int newLayer = LayerMask.NameToLayer("BoxedCat");
+        var children = cat.GetComponentsInChildren<Transform>();
+        foreach(var chld in children)
+        {
+            chld.gameObject.layer = newLayer;
+        }
+
+        //cat.transform.DOScale(cat.transform.localScale * 0.7f, 0.5f).SetEase(Ease.InOutQuad);
+        if (!catRb)
+        {
+            Debug.Log($"Cat {cat.name} doesnt have a rigidbody2D");
+            return;
+        }
+        SpringJoint2D spring = this.AddComponent<SpringJoint2D>();
+
+        spring.anchor = new Vector2(0, AnchorOffset);
+        spring.connectedBody = catRb;
+        spring.autoConfigureDistance = false;
+        spring.distance = Vector3.Distance(transform.position + Vector3.up * AnchorOffset, cat.transform.position);
+        spring.enableCollision = true;
     }
 
     // Update is called once per frame
@@ -68,12 +94,12 @@ public class CatBoxCatcher : MonoBehaviour
             }
             SideTweener = CatcherVisuals.DOScaleX(inputSide, ChangeHeadingDuration).SetEase(Ease.InOutQuad);
 
-            if(ChestSideTweener != null && ChestSideTweener.IsActive())
-            {
-                ChestSideTweener.Kill();
-            }
-            ChestSideTweener = ChestHitboxTransform.DOLocalRotate(new Vector3(0f, 0f, startChestHitboxRotation * inputSide), ChangeHeadingDuration);
-
+            //if(ChestSideTweener != null && ChestSideTweener.IsActive())
+            //{
+            //    ChestSideTweener.Kill();
+            //}
+            //ChestSideTweener = ChestHitboxTransform.DOLocalRotate(new Vector3(0f, 0f, startChestHitboxRotation * inputSide), ChangeHeadingDuration, RotateMode.Fast);
+            ChestHitboxTransform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, startChestHitboxRotation * inputSide));
             lastInputSide = inputSide;
         }
 
