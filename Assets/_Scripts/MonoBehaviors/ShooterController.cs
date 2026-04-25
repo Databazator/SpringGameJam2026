@@ -90,7 +90,7 @@ public class ShooterController : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount += 1;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position.WithZ(0.0f));
-        lineRenderer.positionCount += _ballisticCurve.TimeStepCount - 1;
+        lineRenderer.positionCount += _ballisticCurve.TimeStepCount - 2;
 
         ResetProjectile();
     }
@@ -134,14 +134,12 @@ public class ShooterController : MonoBehaviour
             .ClampMagnitude(MaxAimingArmLength)
             .ClampConeX(AimingArmRotationRangeDegrees);
 
-        //Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
-        //lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
 		float angle = Mathf.Atan2(aimingArmVector.y, aimingArmVector.x) + Mathf.PI;
-		for (int t = 1; t < _ballisticCurve.TimeStepCount; ++t)
+		for (int t = 1; t < _ballisticCurve.TimeStepCount - 1; ++t)
         {
             float time = t * _ballisticCurve.TimeStep;
             Vector2 pos = GetBallisticCurvePoint(transform.position.Truncate(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * projectile.gravityScale, time);
-            lineRenderer.SetPosition(lineRenderer.positionCount - _ballisticCurve.TimeStepCount + t - 1, pos);
+            lineRenderer.SetPosition(lineRenderer.positionCount - _ballisticCurve.TimeStepCount + t + 1, pos);
         }
     }
 
