@@ -18,13 +18,13 @@ public class CatBoxCatcher : MonoBehaviour
 
     private Vector2 moveInput;
     private float currentHorVelocity = 0;
-    [SerializeField] private Rigidbody characterController;
+    [SerializeField] private Rigidbody2D characterController;
 
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
         moveAction = inputActions.Player.Move;
-        if(!characterController) characterController = GetComponent<Rigidbody>();
+        if(!characterController) characterController = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
@@ -66,7 +66,7 @@ public class CatBoxCatcher : MonoBehaviour
             }            
         }
 
-        characterController.MovePosition(characterController.position + Vector3.right * currentHorVelocity * Time.fixedDeltaTime);
+        characterController.MovePosition(characterController.position + Vector2.right * currentHorVelocity * Time.fixedDeltaTime);
     }
 
     private void FixedUpdate()
