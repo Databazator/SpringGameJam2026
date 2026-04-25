@@ -272,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 681442306}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.95, y: 2.72, z: 0}
+  m_LocalPosition: {x: -4.95, y: 0.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -294,7 +294,7 @@ MonoBehaviour:
   CatVisualPivot: {fileID: 1457004668}
   SpinSide: 1
   SpinDuration: 2
-  SpinRevolutions: 15
+  SpinRevolutions: 10
   RiseMult: 0.05
   RiseTimes: 4
 --- !u!1 &821152822
@@ -777,6 +777,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a1684942f26b1014184bf8807402d4e0, type: 2}
+  - {fileID: 2100000, guid: d8927ffddb105f147b8c13c664757c28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
