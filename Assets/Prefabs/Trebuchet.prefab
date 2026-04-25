@@ -929,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305998636216815829, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: m_Parameters.numCapVertices
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305998636216815829, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -1085,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305998636216815829, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: m_Parameters.numCornerVertices
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5933109063125308402, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: m_Name
