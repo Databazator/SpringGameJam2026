@@ -1,3 +1,4 @@
+using EasyButtons;
 using UnityEngine;
 
 /// <summary>
@@ -68,7 +69,7 @@ public class ShooterController : MonoBehaviour
     /// <summary>
     /// Resets projectile to shooter's starting point and reset it's physical properties.
     /// </summary>
-    [ContextMenu("Reset Projectile")]
+    [Button]
     public void ResetProjectile()
     {
         projectile.bodyType = RigidbodyType2D.Kinematic;
