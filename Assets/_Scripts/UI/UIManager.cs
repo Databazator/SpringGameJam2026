@@ -41,6 +41,11 @@ public class UIManager : MonoBehaviour
             TitleScreen.GetComponent<CanvasGroup>().alpha = 1.0f;
             ShowScreen(TitleScreen);
         }
+        else
+        {
+            currentScreen = null;
+            OnStartGame.Invoke();
+        }
     }
 
     void ShowScreen(UIScreen screen)
@@ -67,9 +72,9 @@ public class UIManager : MonoBehaviour
     {
         if (currentScreen != null) // null is game/empty screen
         {
-            if (Keyboard.current.anyKey.wasPressedThisFrame)
+            if (Keyboard.current.anyKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
             {
-                Debug.Log($"UIManager on any key down");
+                //Debug.Log($"UIManager on any key down");
                 AnyKeyPressed();
             }            
         }        
