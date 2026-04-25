@@ -1,5 +1,11 @@
 using DG.Tweening;
 using UnityEngine;
+using System.Runtime.CompilerServices;
+using MarkusSecundus.Utils.Primitives;
+using MarkusSecundus.Utils.Randomness;
+
+
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -32,16 +38,50 @@ public class CatSpinner : MonoBehaviour
     private Vector3 startCatPosition;
 
     public float SpinSide;
-    public float SpinDuration;
-    public int SpinRevolutions;
-    public float RiseMult;
-    public int RiseTimes;
     bool spinActive = true;
     float spinTimer = 0f;
 
+    [System.Serializable]
+    public struct SpinConfig
+    {
+        public float SpinDuration;
+        public float SpinRevolutions;
+        public float RiseMultiplier;
+        public float RiseTimes;
+
+        public SpinConfig Lerp(in SpinConfig o, float t) => new SpinConfig
+        {
+            SpinDuration = Mathf.Lerp(SpinDuration, o.SpinDuration, t),
+            SpinRevolutions = Mathf.Lerp(SpinRevolutions, o.SpinRevolutions, t),
+            RiseMultiplier = Mathf.Lerp(RiseMultiplier, o.RiseMultiplier, t),
+            RiseTimes = Mathf.Lerp(RiseTimes, o.RiseTimes, t)
+        };
+    }
+
+    public SpinConfig IdleSpin;
+    public Interval<float> IdleRestDuration;
+    public Interval<SpinConfig> PreparationSpin;
+    public SpinConfig FlyingSpin;
+
+    public enum CurrentState
+    {
+        Idle, Preparation, Flying
+    }
+    CurrentState _currentState = CurrentState.Idle;
+    float _preparationIntensity = 0f;
+    public SpinConfig DesiredSpin => _currentState switch
+    {
+        CurrentState.Idle => IdleSpin,
+        CurrentState.Preparation => PreparationSpin.Min.Lerp(PreparationSpin.Max, _preparationIntensity),
+        CurrentState.Flying => FlyingSpin,
+        _ => throw new System.ArgumentException("This should not happen!")
+    };
+
+    public SpinConfig CurrentSpin;
 
     private void Start()
     {
+        CurrentSpin = IdleSpin;
         if (SpinOnStart)
         {
             StartSpin();
@@ -62,31 +102,70 @@ public class CatSpinner : MonoBehaviour
 
     private void Update()
     {
-        if(spinTimer <= SpinDuration)
+        CurrentSpin = CurrentSpin.Lerp(DesiredSpin, Time.deltaTime);
+
+        if(! spinActive)
         {
-            spinTimer += Time.deltaTime;
+            if(_currentState != CurrentState.Idle)
+            {
+                spinActive = true;
+                spinTimer = 0;
+            }
+            else
+			{
+				spinTimer -= Time.deltaTime;
+				if (spinTimer < 0)
+				{
+					spinTimer = 0f;
+					spinActive = true;
+				}
+                return;
+			}
+        }
+        Debug.Assert(spinActive);
+        spinTimer += Time.deltaTime;
 
-            float currFactor = spinTimer / SpinDuration;
-            float currRot = (currFactor * SpinRevolutions * 360f * Mathf.Sign(SpinSide));
-            
+        if (spinTimer <= CurrentSpin.SpinDuration)
+        {
 
-            float currRise = Mathf.Sin(currFactor * RiseTimes * 4f * Mathf.PI + startCatPosition.x) * RiseMult;
+            float currFactor = spinTimer / CurrentSpin.SpinDuration;
+            float currRot = (currFactor * CurrentSpin.SpinRevolutions * 360f * Mathf.Sign(SpinSide));
+
+
+            float currRise = Mathf.Cos(currFactor * CurrentSpin.RiseTimes * 4f * Mathf.PI + startCatPosition.x) * CurrentSpin.RiseMultiplier;
             Vector3 currentPos = CatVisualPivot.localPosition + Vector3.up * currRise;
 
             CatVisualPivot.rotation = Quaternion.Euler(0f, currRot, 0f);
             CatVisualPivot.localPosition = currentPos;
         }
-        else
-        {
-            if(spinActive)
+		else  {
+            if (_currentState == CurrentState.Idle)
             {
-                spinTimer = 0f;                
-            }
-            CatVisualPivot.rotation = Quaternion.identity;
-            CatVisualPivot.localPosition = startCatVisPivotLocalPos;
-        }
+                spinActive = false;
+                spinTimer = RandomHelpers.Rand.Next(this.IdleRestDuration);
+			}
+            else
+            {
+				spinTimer = 0f;
+			}
+
+			//CatVisualPivot.rotation = Quaternion.identity;
+			//CatVisualPivot.localPosition = startCatVisPivotLocalPos;
+		}
         
     }
+
+    public void SetIdle() => this._currentState = CurrentState.Idle;
+    public void SetPreparation(float intensity) => (this._currentState, this._preparationIntensity) = (CurrentState.Preparation, intensity);
+    public void SetFlying() => this._currentState = CurrentState.Flying;
+    
+    public void StartSpinSequence()
+    {
+		Sequence spinSeq = DOTween.Sequence().PrependCallback(() => this.StartSpin())
+			.AppendInterval(2f).AppendCallback(() => this.StopSpin())
+		//.AppendInterval(1f)
+		.SetLoops(-1, LoopType.Restart);
+	}
 }
 
 

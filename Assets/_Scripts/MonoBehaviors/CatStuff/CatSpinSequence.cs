@@ -12,10 +12,10 @@ public class CatSpinSequence : MonoBehaviour
 
     private void Start()
     {
-        Sequence spinSeq = DOTween.Sequence();
-        spinSeq.PrependCallback(() => spinner.StartSpin())
-            .AppendInterval(2f).AppendCallback(() => spinner.StopSpin())
-        .AppendInterval(1f)
-        .SetLoops(-1, LoopType.Restart);
+        //Sequence spinSeq = DOTween.Sequence();
+        //spinSeq.PrependCallback(() => spinner.StartSpin())
+        //    .AppendInterval(2f).AppendCallback(() => spinner.StopSpin())
+        //.AppendInterval(1f)
+        //.SetLoops(-1, LoopType.Restart);
     }
 }

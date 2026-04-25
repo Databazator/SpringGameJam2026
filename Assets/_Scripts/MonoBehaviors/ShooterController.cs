@@ -111,6 +111,7 @@ public class ShooterController : MonoBehaviour
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
         projectile.transform.position = ProjectileStartPosition.position.WithZ(projectile.transform.position.z);
+        projectile.GetComponentInChildren<CatSpinner>().SetIdle();
         launched = false;
         animationEvents.ProjectileTransform = projectile.transform;
         projectile.transform.SetParent(visualPivot, true);
@@ -141,6 +142,7 @@ public class ShooterController : MonoBehaviour
             Vector2 pos = GetBallisticCurvePoint(transform.position.Truncate(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * projectile.gravityScale, time);
             lineRenderer.SetPosition(lineRenderer.positionCount - _ballisticCurve.TimeStepCount + t + 1, pos);
         }
+        Projectile.GetComponent<CatController>().PrepareShooting(aimingArmVector.magnitude / MaxAimingArmLength);
     }
 
     private void HandleShooting()
@@ -158,6 +160,7 @@ public class ShooterController : MonoBehaviour
     private void AnimationEvents_OnProjectileLaunch(object sender, System.EventArgs e)
     {
         Projectile.bodyType = RigidbodyType2D.Dynamic;
+        Projectile.GetComponent<CatController>().DoShoot();
         Projectile.AddForce(-aimingArmVector * StrengthMultiplier, ForceMode2D.Impulse);
 
         aimingArmVector = Vector2.zero;

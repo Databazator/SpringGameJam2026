@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 8266754890855736933}
   - component: {fileID: 3109732355961733321}
   - component: {fileID: 4534542783598733780}
-  - component: {fileID: 2988652882331934569}
   m_Layer: 0
   m_Name: FishEntity
   m_TagString: Untagged
@@ -189,6 +188,7 @@ MonoBehaviour:
     EndRotation: {x: -0.9396926, y: 0, z: 0, w: 0.34202015}
     Speed: 2
     Ease: 4
+  _getEatenDuration_seconds: 0.5
 --- !u!50 &3109732355961733321
 Rigidbody2D:
   serializedVersion: 5
@@ -253,33 +253,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.088758476, y: -0.02362181}
   m_Size: {x: 2.3266356, y: 1.1349294}
   m_Direction: 1
---- !u!114 &2988652882331934569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419930165766849849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d9e4147710b40d4287d2ce34ba70fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Physics.CallbackedTrigger
-  ListenToTriggerEvents: 1
-  ListenToCollisionEvents: 0
-  TagWhitelist: []
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnter2D:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit2D:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1594075228562761038
 GameObject:
   m_ObjectHideFlags: 0

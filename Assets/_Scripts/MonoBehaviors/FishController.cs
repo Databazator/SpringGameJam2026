@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MarkusSecundus.Utils.Extensions;
 using MarkusSecundus.Utils.Primitives;
 using System.Collections;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class FishController : MonoBehaviour
     [SerializeField] Transform _rotatableBody;
     [SerializeField] SplineContainer _path;
     [SerializeField] float _moveSpeed = 1.0f;
+
+    Transform _root;
 
     [System.Serializable]
     struct FlyingEffect
@@ -21,12 +24,13 @@ public class FishController : MonoBehaviour
 	}
     [SerializeField] FlyingEffect _flyEffect;
 
+	[SerializeField] public float _getEatenDuration_seconds;
 
 
-    void Start()
+	void Start()
     {
+        _root = transform.parent;
         _moveSpeed /= _path.CalculateLength();
-        _runMovementAnimation();
         _runFlyingAnimation();
     }
 
@@ -44,22 +48,24 @@ public class FishController : MonoBehaviour
         {
             var delta = transform.position.xy() - _lastPos.Value;
             if(delta.x != 0f)
-				_rotatableBody.localScale = _rotatableBody.localScale.WithX(delta.x < 0f ? 1f : -1f);
+				_rotatableBody.localScale = _rotatableBody.localScale.With(x: delta.x < 0f ? 1f : -1f);
 		}
         _lastPos = this.transform.position.xy();
 	}
 
-	void _runMovementAnimation()
-	{
-		var seq = DOTween.Sequence().Append(_flyEffect.Wing.DORotateQuaternion(_flyEffect.EndRotation, _flyEffect.Speed).SetEase(_flyEffect.Ease)).Append(_flyEffect.Wing.DORotateQuaternion(_flyEffect.StartRotation, _flyEffect.Speed).SetEase(_flyEffect.Ease));
-		seq.SetLoops(-1, LoopType.Restart);
-	}
-
+    Sequence _wingSequence;
     void _runFlyingAnimation()
     {
         _flyEffect.Wing.rotation = _flyEffect.StartRotation;
         var seq = DOTween.Sequence().Append(_flyEffect.Wing.DOLocalRotateQuaternion(_flyEffect.EndRotation, _flyEffect.Speed).SetEase(_flyEffect.Ease)).Append(_flyEffect.Wing.DOLocalRotateQuaternion(_flyEffect.StartRotation, _flyEffect.Speed).SetEase(_flyEffect.Ease));
         seq.SetLoops(-1, LoopType.Restart);
-        
+        _wingSequence = seq;
+    }
+
+    public void _runEatenEffect()
+    {
+        if (_wingSequence.IsNotNil() && _wingSequence.IsPlaying())
+            _wingSequence.Kill();
+        transform.DOScale(0f, _getEatenDuration_seconds).OnComplete(() => Destroy(_root.gameObject));
     }
 }
