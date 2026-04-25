@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIScreen : MonoBehaviour
 {
-    public bool StartActive;
+    //public bool StartActive;
 
     public float ScreenFadeDuration = 1f;
 
@@ -18,16 +18,7 @@ public class UIScreen : MonoBehaviour
 
     void Start()
     {
-        if (StartActive)
-        {
-            ShowScreen();
-        }
-        else
-        {
-            canvasGroup.alpha = 0f;
-            canvasGroup.interactable = false;
-            canvasGroup.blocksRaycasts = false;
-        }
+             
     }
 
     [ContextMenu("Show Screen")]
@@ -56,9 +47,8 @@ public class UIScreen : MonoBehaviour
     {
         HideScreen(0f);
     }
-
-    [ContextMenu("Hide Screen")]
-    public virtual void HideScreen(float hidePanelDelay)
+    
+    public virtual void HideScreen(float hidePanelDelay = -1f)
     {
         HideElementsSequence();
 
@@ -68,6 +58,13 @@ public class UIScreen : MonoBehaviour
             canvasGroup.blocksRaycasts = false;
             canvasGroup.interactable = false;
         });
+    }
+
+    public virtual void HideScreenImmediate()
+    {
+        canvasGroup.alpha = 0f;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
     }
 
     public virtual void ResetElements()

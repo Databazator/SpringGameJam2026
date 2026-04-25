@@ -70,7 +70,7 @@ public class CatSpinner : MonoBehaviour
             float currRot = (currFactor * SpinRevolutions * 360f * Mathf.Sign(SpinSide));
             
 
-            float currRise = Mathf.Sin(currFactor * RiseTimes * 4 * Mathf.PI + startCatPosition.x) * RiseMult;
+            float currRise = Mathf.Sin(currFactor * RiseTimes * 4f * Mathf.PI + startCatPosition.x) * RiseMult;
             Vector3 currentPos = CatVisualPivot.localPosition + Vector3.up * currRise;
 
             CatVisualPivot.rotation = Quaternion.Euler(0f, currRot, 0f);
