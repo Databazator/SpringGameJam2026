@@ -1,3 +1,5 @@
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -6,6 +8,9 @@ public class CatBoxCatcher : MonoBehaviour
 {
     private InputSystem_Actions inputActions;
     private InputAction moveAction;
+    public Animator Animator;
+    public Transform CatcherVisuals;
+    private Tweener SideTweener;
 
     public float MaxSpeed;
     public float Acceleration;
@@ -17,6 +22,7 @@ public class CatBoxCatcher : MonoBehaviour
     public bool HasControl = true;
 
     private Vector2 moveInput;
+    float lastInputSide;
     private float currentHorVelocity = 0;
     [SerializeField] private Rigidbody2D characterController;
 
@@ -40,7 +46,30 @@ public class CatBoxCatcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput = moveAction.ReadValue<Vector2>();       
+        moveInput = moveAction.ReadValue<Vector2>();  
+        
+        float inputSide = Mathf.Sign(moveInput.x);
+        float currSide = lastInputSide;
+
+        if(inputSide != currSide && Mathf.Abs(moveInput.x) > Mathf.Epsilon)
+        {
+            if(SideTweener != null && SideTweener.IsActive())
+            {
+                SideTweener.Kill();
+            }
+            SideTweener = CatcherVisuals.DOScaleX(inputSide, 0.25f).SetEase(Ease.InOutQuad);
+
+            lastInputSide = inputSide;
+        }
+
+        if(moveInput.x != 0)
+        {
+            Animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            Animator.SetBool("IsWalking", false);
+        }        
     }
 
     void HandleMovement()
@@ -65,6 +94,8 @@ public class CatBoxCatcher : MonoBehaviour
                 currentHorVelocity -= Mathf.Max(currentHorVelocity, deceleration);
             }            
         }
+
+        currentHorVelocity = Mathf.Clamp(currentHorVelocity, -MaxSpeed, MaxSpeed);
 
         characterController.MovePosition(characterController.position + Vector2.right * currentHorVelocity * Time.fixedDeltaTime);
     }
