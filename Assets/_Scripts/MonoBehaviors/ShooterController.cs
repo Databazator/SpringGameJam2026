@@ -7,7 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ShooterController : MonoBehaviour
 {
+    /// <summary>
+    /// Z component of the rendered line.
+    /// </summary>
     private const float lineZ = -1.0f;
+
+    /// <summary>
+    /// Determine if projectile was launched.
+    /// </summary>
+    private bool launched = false;
 
     private InputSystem_Actions Input;
     private LineRenderer lineRenderer;
@@ -17,6 +25,9 @@ public class ShooterController : MonoBehaviour
     [field: SerializeField]
     private Rigidbody2D projectile;
 
+    /// <summary>
+    /// Vector from shooter's origin to the aiming arm's end point.
+    /// </summary>
     private Vector2 aimingArmVector;
 
     /// <summary>
@@ -33,6 +44,9 @@ public class ShooterController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Maximum magnitude of the aiming arm vector.
+    /// </summary>
     [field: SerializeField]
     [Range(0.0f, 10.0f)]
     public float MaxAimingArmLength { get; private set; } = 3.0f;
@@ -76,6 +90,7 @@ public class ShooterController : MonoBehaviour
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
         projectile.transform.position = transform.position.WithZ(Projectile.transform.position.z);
+        launched = false;
     }
 
     private void HandleAim()
@@ -84,9 +99,9 @@ public class ShooterController : MonoBehaviour
             return;
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.Catapult.Aim.ReadValue<Vector2>());
-        aimingArmVector = mousePosition.Truncate() - transform.position.Truncate();
-        aimingArmVector = aimingArmVector.ClampMagnitude(MaxAimingArmLength);
-        aimingArmVector = aimingArmVector.ClampConeX(AimingArmRotationRangeDegrees);
+        aimingArmVector = (mousePosition.Truncate() - transform.position.Truncate())
+            .ClampMagnitude(MaxAimingArmLength)
+            .ClampConeX(AimingArmRotationRangeDegrees);
 
         Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
         lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
@@ -94,6 +109,8 @@ public class ShooterController : MonoBehaviour
 
     private void HandleShooting()
     {
+        if (launched)
+            return;
         if (Projectile == null)
             return;
         if (!Input.Catapult.Toggle.WasReleasedThisFrame())
@@ -104,5 +121,6 @@ public class ShooterController : MonoBehaviour
 
         aimingArmVector = Vector2.zero;
         lineRenderer.SetPosition(1, transform.position.Truncate());
+        launched = true;
     }
 }
