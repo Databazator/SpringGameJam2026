@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ShooterController : MonoBehaviour
 {
+    private const float lineZ = -1.0f;
+
     private InputSystem_Actions Input;
     private LineRenderer lineRenderer;
     /// <summary>
@@ -54,7 +56,7 @@ public class ShooterController : MonoBehaviour
 
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(0, transform.position.WithZ(lineZ));
 
         // setter enforces desired physical properties
         Projectile = projectile;
@@ -76,7 +78,8 @@ public class ShooterController : MonoBehaviour
         aimingArmVector = aimingArmVector.ClampMagnitude(MaxAimingArmLength);
         aimingArmVector = aimingArmVector.ClampConeX(AimingArmRotationRangeDegrees);
 
-        lineRenderer.SetPosition(1, transform.position.Truncate() + aimingArmVector);
+        Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
+        lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
     }
 
     private void HandleShooting()

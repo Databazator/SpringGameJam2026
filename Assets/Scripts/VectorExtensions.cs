@@ -15,6 +15,21 @@ public static class Vector3Extensions
     /// </summary>
     public static Vector3 ClampMagnitude(this Vector3 vector, float maxMagnitude)
         => Vector3.ClampMagnitude(vector, maxMagnitude);
+
+    /// <summary>
+    /// Return copy of itself with X component set to a specified value.
+    /// </summary>
+    public static Vector3 WithX(this Vector3 vector, float x) => new(x, vector.y, vector.z);
+
+    /// <summary>
+    /// Return copy of itself with Y component set to a specified value.
+    /// </summary>
+    public static Vector3 WithY(this Vector3 vector, float y) => new(vector.x, y, vector.z);
+
+    /// <summary>
+    /// Return copy of itself with Z component set to a specified value.
+    /// </summary>
+    public static Vector3 WithZ(this Vector3 vector, float z) => new(vector.x, vector.y, z);
 }
 
 /// <summary>
@@ -32,6 +47,16 @@ public static class Vector2Extensions
     /// </summary>
     public static Vector2 ClampMagnitude(this Vector2 vector, float maxMagnitude)
         => Vector2.ClampMagnitude(vector, maxMagnitude);
+
+    /// <summary>
+    /// Return copy of itself with X component set to a specified value.
+    /// </summary>
+    public static Vector2 WithX(this Vector2 vector, float x) => new(x, vector.y);
+
+    /// <summary>
+    /// Return copy of itself with Y component set to a specified value.
+    /// </summary>
+    public static Vector2 WithY(this Vector2 vector, float y) => new(vector.x, y);
 
     /// <summary>
     /// Converts direction vector with arbitrary magnitude to angle in degrees.
