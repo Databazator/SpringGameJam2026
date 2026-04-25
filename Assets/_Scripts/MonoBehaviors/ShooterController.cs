@@ -1,5 +1,6 @@
 using EasyButtons;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Controller of shooter game object. Shooter would probbaly be a catapult or a trebuchet.
@@ -35,6 +36,18 @@ public class ShooterController : MonoBehaviour
     /// Vector from shooter's origin to the aiming arm's end point.
     /// </summary>
     private Vector2 aimingArmVector;
+
+    /// <summary>
+    /// Occurs when projectile is launched.
+    /// </summary>
+    [field: SerializeField]
+    public UnityEvent<GameObject> OnProjectileLaunched { get; private set; } = new();
+
+    /// <summary>
+    /// Occurs when <see cref="ResetProjectile"/> is called.
+    /// </summary>
+    [field: SerializeField]
+    public UnityEvent<GameObject> OnProjectileReset { get; private set; } = new();
 
     /// <summary>
     /// Projectile which could be shot. Projectile does not get automatically reloaded. Shooter takes
@@ -111,10 +124,13 @@ public class ShooterController : MonoBehaviour
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
         projectile.transform.position = ProjectileStartPosition.position.WithZ(projectile.transform.position.z);
+        projectile.transform.rotation = Quaternion.Euler(Vector3.zero);
+        projectile.transform.SetParent(visualPivot, true);
         projectile.GetComponentInChildren<CatSpinner>().SetIdle();
+
         launched = false;
         animationEvents.ProjectileTransform = projectile.transform;
-        projectile.transform.SetParent(visualPivot, true);
+        OnProjectileReset.Invoke(projectile.gameObject);
     }
 
     [System.Serializable]
@@ -165,5 +181,7 @@ public class ShooterController : MonoBehaviour
 
         aimingArmVector = Vector2.zero;
         launched = true;
+
+        OnProjectileLaunched.Invoke(Projectile.gameObject);
     }
 }
