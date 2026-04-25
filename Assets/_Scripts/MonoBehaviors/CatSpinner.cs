@@ -26,8 +26,10 @@ public class CatSpinnerEditor : Editor
 
 public class CatSpinner : MonoBehaviour
 {
+    public bool SpinOnStart = true;
     public Transform CatVisualPivot;
     private Vector3 startCatVisPivotLocalPos;
+    private Vector3 startCatPosition;
 
     public float SpinSide;
     public float SpinDuration;
@@ -40,9 +42,13 @@ public class CatSpinner : MonoBehaviour
 
     private void Start()
     {
-        StartSpin();
+        if (SpinOnStart)
+        {
+            StartSpin();
+        }
 
         startCatVisPivotLocalPos = CatVisualPivot.localPosition;
+        startCatPosition = transform.position;
     }
     public void StartSpin()
     {
@@ -64,7 +70,7 @@ public class CatSpinner : MonoBehaviour
             float currRot = (currFactor * SpinRevolutions * 360f * Mathf.Sign(SpinSide));
             
 
-            float currRise = Mathf.Sin(currFactor * RiseTimes * 4 * Mathf.PI) * RiseMult;
+            float currRise = Mathf.Sin(currFactor * RiseTimes * 4f * Mathf.PI + startCatPosition.x) * RiseMult;
             Vector3 currentPos = CatVisualPivot.localPosition + Vector3.up * currRise;
 
             CatVisualPivot.rotation = Quaternion.Euler(0f, currRot, 0f);

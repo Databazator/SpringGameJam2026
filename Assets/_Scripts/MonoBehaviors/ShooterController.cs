@@ -62,6 +62,9 @@ public class ShooterController : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float StrengthMultiplier { get; private set; } = 1.0f;
 
+    private Vector2 GetBallisticCurvePoint(Vector2 origin, float velocity, float angle_rad, float g, float time)
+        => new Vector2(origin.x + velocity * time * Mathf.Cos(angle_rad), origin.y + velocity * time * Mathf.Sin(angle_rad) + (0.5f * g * (time * time)));
+
     private void Awake()
     {
         Input = new InputSystem_Actions();
@@ -93,6 +96,13 @@ public class ShooterController : MonoBehaviour
         launched = false;
     }
 
+    [System.Serializable]
+    class BallisticCurveConfig
+	{
+		public float TimeStep = 0.5f;
+		public int TimeStepCount = 10;
+	}
+    [SerializeField] BallisticCurveConfig _ballisticCurve;
     private void HandleAim()
     {
         if (!Input.Catapult.Toggle.IsPressed())
@@ -103,8 +113,16 @@ public class ShooterController : MonoBehaviour
             .ClampMagnitude(MaxAimingArmLength)
             .ClampConeX(AimingArmRotationRangeDegrees);
 
-        Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
-        lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
+        //Vector2 endPointPosition = transform.position.Truncate() + aimingArmVector;
+        //lineRenderer.SetPosition(1, endPointPosition.Extend(lineZ));
+        lineRenderer.positionCount = _ballisticCurve.TimeStepCount;
+		float angle = Mathf.Atan2(aimingArmVector.y, aimingArmVector.x) + Mathf.PI;
+		for (int t=1; t < _ballisticCurve.TimeStepCount; ++t)
+        {
+            float time = t * _ballisticCurve.TimeStep;
+            Vector2 pos = GetBallisticCurvePoint(transform.position.Truncate(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * projectile.gravityScale, time);
+            lineRenderer.SetPosition(t, pos);
+        }
     }
 
     private void HandleShooting()
@@ -116,7 +134,7 @@ public class ShooterController : MonoBehaviour
         if (!Input.Catapult.Toggle.WasReleasedThisFrame())
             return;
 
-        Projectile.bodyType = RigidbodyType2D.Dynamic;
+		Projectile.bodyType = RigidbodyType2D.Dynamic;
         Projectile.AddForce(-aimingArmVector * StrengthMultiplier, ForceMode2D.Impulse);
 
         aimingArmVector = Vector2.zero;
