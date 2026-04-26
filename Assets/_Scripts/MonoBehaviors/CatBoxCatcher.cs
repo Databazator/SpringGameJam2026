@@ -39,6 +39,8 @@ public class CatBoxCatcher : MonoBehaviour
     {
         inputActions = new InputSystem_Actions();
         moveAction = inputActions.Player.Move;
+        inputActions.Disable();
+
         if(!characterController) characterController = GetComponent<Rigidbody2D>();
     }
     void Start()
@@ -94,6 +96,22 @@ public class CatBoxCatcher : MonoBehaviour
 
         //update chest hitbox
         ChestHitboxTransform.position = ChestHitboxPositionTrack.position;
+    }
+
+    /// <summary>
+    /// Enable input control of the catcher.
+    /// </summary>
+    public void EnableInput()
+    {
+        inputActions.Enable();
+    }
+
+    /// <summary>
+    /// Disable input control of the catcher.
+    /// </summary>
+    public void DisableInput()
+    {
+        inputActions.Disable();
     }
 
     void HandleMovement()

@@ -128,9 +128,10 @@ public class ShooterController : MonoBehaviour
         projectile.transform.SetParent(visualPivot, true);
         projectile.GetComponentInChildren<CatSpinner>().SetIdle();
 
-        launched = false;
         animationEvents.ProjectileTransform = projectile.transform;
-        OnProjectileReset.Invoke(projectile.gameObject);
+        if (launched)
+            OnProjectileReset.Invoke(projectile.gameObject);
+        launched = false;
     }
 
     [System.Serializable]
