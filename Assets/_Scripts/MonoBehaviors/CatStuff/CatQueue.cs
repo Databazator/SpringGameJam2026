@@ -19,9 +19,14 @@ public class CatQueue : MonoBehaviour
 
     private void Start()
     {
+        PositionCatsInQueue();
+    }
+
+    public void PositionCatsInQueue()
+    {
         int index = 0;
         //position cats into the queue
-        foreach(var c in Cats)
+        foreach (var c in Cats)
         {
             c.transform.position = GetQueuePosForIndex(index);
 
@@ -34,8 +39,9 @@ public class CatQueue : MonoBehaviour
         return Cats.Count == 0;
     }
 
+    // Front cat jumps to the trebuchet sling and then the queue is shuffled forward. Returnes dequeued cat
     [ContextMenu("Pop Front Cat")]
-    public CatController LoadFrontCat()
+    public CatController DequeueCat()
     {
         if (Empty()) return null;
 
@@ -68,7 +74,7 @@ public class CatQueue : MonoBehaviour
             Sequence seq = DOTween.Sequence();
 
             seq.PrependInterval(delay);
-            seq.Append(c.transform.DOShakeRotation(_repositionDuration, 5));
+            seq.Append(c.transform.DOShakeRotation(_repositionDuration, 25, 20));
             seq.Append(c.transform.DOMove(GetQueuePosForIndex(index), _repositionDuration).SetEase(Ease.InOutQuad));
 
             index++;

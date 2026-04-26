@@ -141,6 +141,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 62641519}
     - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
+      propertyPath: _positionOffsets.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
+      propertyPath: _repositionDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
       propertyPath: OnCatLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1865093268}
@@ -402,6 +410,30 @@ PrefabInstance:
       propertyPath: Targets.Array.data[3].Object
       value: 
       objectReference: {fileID: 1767778559}
+    - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.239372
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.380503
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.451845
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 50.239372
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.380503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.4518456
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1185,7 +1217,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 37.926563
+  orthographic size: 33.03984
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1210,7 +1242,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.46, y: 35.42479, z: -12.028139}
+  m_LocalPosition: {x: 55.410007, y: 30.538065, z: -15.451845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1414,6 +1446,10 @@ PrefabInstance:
       propertyPath: <OnCatReloaded>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 213904711}
+    - target: {fileID: 6888411457718805598, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8114525203289797284, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.86
@@ -1504,6 +1540,7 @@ MonoBehaviour:
   CatHolderTransform: {fileID: 535687637}
   TrebuchetLoadCam: {fileID: 1212959780}
   FocusGroupCam: {fileID: 240094656}
+  CatLoadStateEnterLogicDelay: 2.5
   LivesCount: 9
 --- !u!4 &1865093269
 Transform:

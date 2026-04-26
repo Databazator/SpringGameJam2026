@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     public CinemachineCamera TrebuchetLoadCam;
     public CinemachineCamera FocusGroupCam;
 
+    [Header("State Timing")]
+    public float CatLoadStateEnterLogicDelay = 2f; // wait for camera tween to resolve before doing stuff
+
     public int LivesCount = 9;
     private int _lives;
 
@@ -76,6 +79,8 @@ public class GameManager : MonoBehaviour
                     CatQueue.Cats.Add(cat);
                 }
             }
+
+            CatQueue.PositionCatsInQueue();
         }
     }
 
@@ -106,9 +111,9 @@ public class GameManager : MonoBehaviour
             TrebuchetLoadCam.Priority = 10;
             FocusGroupCam.Priority = 0;
 
-            DOVirtual.DelayedCall(0.5f, () =>
+            DOVirtual.DelayedCall(CatLoadStateEnterLogicDelay + 5f, () =>
             {
-                var c = CatQueue.LoadFrontCat();
+                var c = CatQueue.DequeueCat();
                 Shooter.SetCatAsProjectile(c);
                 TrebuchetAnimEvents.ProjectileTransform = c.transform;
                 Trebuchet.Cat = c.gameObject;

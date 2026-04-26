@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CatQueue
   Cats: []
   TrebuchetSlingPos: {fileID: 0}
-  _positionOffsets: {x: -3, y: 0, z: 0}
-  _repositionDuration: 1
+  _positionOffsets: {x: -3.5, y: 0, z: 0}
+  _repositionDuration: 1.5
   _repositionRandomOffset: 0.2
   _positionXRandomOffset: 0.25
   OnCatLoaded:
