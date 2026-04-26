@@ -33,6 +33,67 @@ Transform:
   - {fileID: 726677157190249475}
   m_Father: {fileID: 3094683386635074478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1577804588377809580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7499543222094937355}
+  - component: {fileID: 4329115391500416623}
+  m_Layer: 0
+  m_Name: RearmAfterDelay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7499543222094937355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577804588377809580}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6867156560352494481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4329115391500416623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577804588377809580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e9fa06758b1a46b9309b90f0aad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Actions.EventTimer
+  ToRun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1885232817634601731}
+        m_TargetAssemblyTypeName: ShooterController, Assembly-CSharp
+        m_MethodName: ResetProjectile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DelaySeconds: 2
+  OnStartup: 0
 --- !u!1 &2322754612340415602
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8114525203289797284}
   - component: {fileID: 6008144159001139163}
+  - component: {fileID: 6473461549823540001}
   m_Layer: 0
   m_Name: Trebuchet
   m_TagString: Untagged
@@ -232,6 +294,8 @@ Transform:
   m_Children:
   - {fileID: 3094683386635074478}
   - {fileID: 1893659514494737431}
+  - {fileID: 6867156560352494481}
+  - {fileID: 6479226672228274616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6008144159001139163
@@ -246,6 +310,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a51bf4e8663d87439976542f8e785fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &6473461549823540001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561426434095566229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08e2a578f2c27540869e7fa2ac2ab93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrebuchetController
+  cat: {fileID: 2473271468919345510}
+  <OnCatCollidesEnvironment>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4329115391500416623}
+        m_TargetAssemblyTypeName: MarkusSecundus.Utils.Behaviors.Actions.EventTimer,
+          UtilAssembly
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnCatLandInBox>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4329115391500416623}
+        m_TargetAssemblyTypeName: MarkusSecundus.Utils.Behaviors.Actions.EventTimer,
+          UtilAssembly
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnCatLaunched>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6204287583714079008}
+        m_TargetAssemblyTypeName: MarkusSecundus.Utils.Behaviors.Actions.EventTimer,
+          UtilAssembly
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnCatReloaded>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CinemachineTargetAdder, Assembly-CSharp
+        m_MethodName: AddMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8114525203289797284}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CinemachineTargetAdder, Assembly-CSharp
+        m_MethodName: AddMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6479226672228274616}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4971020533411036460
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +853,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &6939553239589676711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6867156560352494481}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6867156560352494481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939553239589676711}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7499543222094937355}
+  - {fileID: 2623881976094773677}
+  m_Father: {fileID: 8114525203289797284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7746312098984094845
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +919,37 @@ Transform:
   - {fileID: 3649798251743452396}
   m_Father: {fileID: 8113434158925671563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.166}
+--- !u!1 &7822841595459523709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6479226672228274616}
+  m_Layer: 0
+  m_Name: TrebuchetTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6479226672228274616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822841595459523709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.56, y: 15.27, z: -11.02814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8114525203289797284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8802431062170844863
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +983,79 @@ Transform:
   - {fileID: 996328066823746751}
   m_Father: {fileID: 8113434158925671563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -28.006}
+--- !u!1 &8916582315539118662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2623881976094773677}
+  - component: {fileID: 6204287583714079008}
+  m_Layer: 0
+  m_Name: RemoveTrebuchetFocusAfterDelay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2623881976094773677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916582315539118662}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6867156560352494481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6204287583714079008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916582315539118662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e9fa06758b1a46b9309b90f0aad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Actions.EventTimer
+  ToRun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineTargetGroup, Unity.Cinemachine
+        m_MethodName: RemoveMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6479226672228274616}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineTargetGroup, Unity.Cinemachine
+        m_MethodName: RemoveMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8114525203289797284}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DelaySeconds: 2
+  OnStartup: 0
 --- !u!1001 &211682700062362611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,6 +1130,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2351687177745455765, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8411072360280033745}
+    - targetCorrespondingSourceObject: {fileID: 2351687177745455765, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7011921960457966709}
+    - targetCorrespondingSourceObject: {fileID: 2351687177745455765, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2752014622852907491}
   m_SourcePrefab: {fileID: 100100000, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
 --- !u!1 &2473271468919345510 stripped
 GameObject:
@@ -910,6 +1205,47 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.7}
   m_Radius: 0.8
+--- !u!114 &7011921960457966709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473271468919345510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340da02d09d527842ac067062e37af5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  OnCollidesEnvironment:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLandInBox:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2752014622852907491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473271468919345510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a0c621b26f4fa489ebca233cf11e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatController
+  _eatingFishScale: {x: 2, y: 4, z: 2}
+  _fishScaleGain: 1.1
+  _fishWeightGain: 1.1
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _airNudgeForce: 10
+  _airNudgeCooldown: 0.25
+  _airNudgeScalePopMult: 0.9
+  _airNudgeScalePopDuration: 0.25
+  HasAirControl: 1
 --- !u!4 &3310280673367671287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
@@ -1168,6 +1504,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd725a657042c14c813eee67a37385e, type: 3}
+--- !u!114 &1885232817634601731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
+  m_PrefabInstance: {fileID: 8973988858168053687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11c12ead14752845b415c2f953e69e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShooterController
 --- !u!4 &1893659514494737431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7407755196317881248, guid: afd725a657042c14c813eee67a37385e, type: 3}
