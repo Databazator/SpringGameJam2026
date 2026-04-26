@@ -2,6 +2,7 @@ using EasyButtons;
 using MarkusSecundus.Utils.Primitives;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.ProBuilder;
 
 /// <summary>
 /// Controller of shooter game object. Shooter would probbaly be a catapult or a trebuchet.
@@ -140,11 +141,16 @@ public class ShooterController : MonoBehaviour
         projectile.bodyType = RigidbodyType2D.Kinematic;
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
-        projectile.transform.position = ProjectileStartPosition.position.WithZ(projectile.transform.position.z);
-        projectile.transform.rotation = Quaternion.Euler(Vector3.zero);
-        projectile.transform.SetParent(visualPivot, true);
-        projectile.GetComponentInChildren<CatSpinner>().SetIdle();
+        projectile.transform.localPosition = Vector2.zero.Extend(projectile.transform.localPosition.z);
+        projectile.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        projectile.transform.SetParent(visualPivot, false);
+
+        var spinner = projectile.GetComponentInChildren<CatSpinner>();
+        spinner.SetIdle();
+        spinner.ResetTransform();
+
         projectile.GetComponentInChildren<CatController>().SetAirNudgeControl(true);
+
 
         animationEvents.ProjectileTransform = projectile.transform;
         if (launched)

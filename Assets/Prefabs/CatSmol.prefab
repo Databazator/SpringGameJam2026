@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CatSpinner
   SpinOnStart: 1
   CatVisualPivot: {fileID: 5160355398520505253}
+  visualPivot: {fileID: 5160355398520505253}
   SpinSide: -1
   IdleSpin:
     SpinDuration: 2
