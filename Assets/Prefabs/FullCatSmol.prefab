@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.962, z: 0}
-  m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
+  m_LocalScale: {x: 2.8124998, y: 2.8124998, z: 2.8125}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7145205732269095347}
@@ -172,8 +172,11 @@ MonoBehaviour:
   _eatingFishScale: {x: 2, y: 4, z: 2}
   _fishScaleGain: 1.1
   _fishWeightGain: 1.1
-  _airNudgeForce: 20
-  _airNudgeCooldown: 1
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  _airNudgeForce: 10
+  _airNudgeCooldown: 0.75
   _airNudgeScalePopMult: 0.75
   _airNudgeScalePopDuration: 0.5
   HasAirControl: 1
@@ -188,102 +191,6 @@ PrefabInstance:
     - target: {fileID: 2351687177745455765, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
       propertyPath: m_Name
       value: CatSmol
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: RiseTimes
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: SpinOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: SpinRevolutions
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleSpin.RiseTimes
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: FlyingSpin.RiseTimes
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleRestDuration.Max
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleRestDuration.Min
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleSpin.SpinDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: FlyingSpin.SpinDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleSpin.RiseMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: IdleSpin.SpinRevolutions
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: FlyingSpin.RiseMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: FlyingSpin.SpinRevolutions
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Max.RiseTimes
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Min.RiseTimes
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Max.SpinDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Min.SpinDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Max.RiseMultiplier
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Min.RiseMultiplier
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Max.SpinRevolutions
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2474558067950394590, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: PreparationSpin.Min.SpinRevolutions
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,10 +231,6 @@ PrefabInstance:
     - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3386837695442176516, guid: cd923f3c9d31f25469878a9abf0a12e8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
