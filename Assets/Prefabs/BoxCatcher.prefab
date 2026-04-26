@@ -1487,11 +1487,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-<<<<<<< HEAD
-  OnIsWalking:
-    m_PersistentCalls:
-      m_Calls: []
-=======
       - m_Target: {fileID: 8689782200643224208}
         m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
         m_MethodName: DoPlay
@@ -1519,7 +1514,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> 28478acb3a12bd74a0a7de62210d0f2ea7f0b9e4
   HasControl: 1
   ChestHitboxTransform: {fileID: 3675641110793193871}
   ChestHitboxPositionTrack: {fileID: 9215770335546067646}
