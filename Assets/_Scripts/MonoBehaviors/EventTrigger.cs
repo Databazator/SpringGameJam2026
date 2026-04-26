@@ -21,6 +21,8 @@ public class EventTrigger : MonoBehaviour
     {
         if (!collision.attachedRigidbody || collision.attachedRigidbody.bodyType == RigidbodyType2D.Static)
             return;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Fish"))
+            return;
 
         OnObjectEnter.Invoke(collision.gameObject);
     }
@@ -28,6 +30,8 @@ public class EventTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.attachedRigidbody || collision.attachedRigidbody.bodyType == RigidbodyType2D.Static)
+            return;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Fish"))
             return;
 
         OnObjectExit.Invoke(collision.gameObject);

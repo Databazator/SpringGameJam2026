@@ -32,6 +32,8 @@ public class FishController : MonoBehaviour
         _root = transform.parent;
         _moveSpeed /= _path.CalculateLength();
         _runFlyingAnimation();
+
+        _t = Random.Range(0.0f, 1.0f);
     }
 
     float _t = 0f;
