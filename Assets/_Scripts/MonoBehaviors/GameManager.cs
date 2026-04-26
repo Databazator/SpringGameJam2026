@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
-
     }
 
     private void Start()
@@ -73,7 +72,6 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-
         
     }
 
@@ -119,6 +117,13 @@ public class GameManager : MonoBehaviour
 
     public void CatLandedInBox()
     {
+        _catsCaught++;
+        if(CatQueue.Empty()) // all cats made it -> Victory screen
+        {
+            UIManager.ShowVictoryScreen();
+            return;
+        }
+
         SetState(GameState.LoadingCat);
     }
 
@@ -155,13 +160,9 @@ public class GameManager : MonoBehaviour
         else if (currentState == GameState.Flight)
         {
 
-
-
         }
         else if (currentState == GameState.Catch)
         {
-
-
 
         }
 
