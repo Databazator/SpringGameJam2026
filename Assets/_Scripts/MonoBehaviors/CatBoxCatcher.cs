@@ -22,7 +22,7 @@ public class CatBoxCatcher : MonoBehaviour
     public float Deceleration;
     public float AccelerationDamping;
 
-    public UnityEvent OnCatCaught;
+    public UnityEvent<Transform> OnCatCaught;
 
     public bool HasControl = true;
 
@@ -53,7 +53,7 @@ public class CatBoxCatcher : MonoBehaviour
     public void CatCaught(GameObject cat)
     {
         Debug.Log($"Object caught in box: {cat.name}");
-        OnCatCaught.Invoke();
+        OnCatCaught.Invoke(cat.transform);
 
 
         //Add spring joint to cat so it stays in the box :3
