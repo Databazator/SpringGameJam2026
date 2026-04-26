@@ -1,6 +1,7 @@
 using EasyButtons;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class TrebuchetController : MonoBehaviour
 {
@@ -55,22 +56,27 @@ public class TrebuchetController : MonoBehaviour
                 var catLander = cat.GetComponent<CatLander>();
                 catLander.OnCollidesEnvironment.AddListener(CatLander_OnEnvironemntCollision);
                 catLander.OnLandInBox.AddListener(CatLander_OnCatBoxAreaCollision);
+
+                shooterController.Projectile = cat.GetComponent<Rigidbody2D>();
             }
         }
     }
 
     private void Awake()
     {
-        Debug.Assert(Cat != null);
-
-        var catLander = cat.GetComponent<CatLander>();
-        catLander.OnCollidesEnvironment.AddListener(CatLander_OnEnvironemntCollision);
-        catLander.OnLandInBox.AddListener(CatLander_OnCatBoxAreaCollision);
+        if (cat != null)
+        {
+            var catLander = cat.GetComponent<CatLander>();
+            catLander.OnCollidesEnvironment.AddListener(CatLander_OnEnvironemntCollision);
+            catLander.OnLandInBox.AddListener(CatLander_OnCatBoxAreaCollision);
+        }
 
         shooterController = GetComponentInChildren<ShooterController>();
-        shooterController.Projectile = cat.GetComponent<Rigidbody2D>();
-        shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
-        shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
+        if (shooterController.Projectile != null)
+        {
+            shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
+            shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
+        }
     }
 
     /// <summary>

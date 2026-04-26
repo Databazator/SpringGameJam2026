@@ -127,6 +127,9 @@ public class ShooterController : MonoBehaviour
     [Button]
     public void ResetProjectile()
     {
+        if (projectile == null)
+            return;
+
         projectile.bodyType = RigidbodyType2D.Kinematic;
         projectile.linearVelocity = Vector2.zero;
         projectile.angularVelocity = 0.0f;
