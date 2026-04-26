@@ -1358,6 +1358,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8114525203289797284}
     m_Modifications:
     - target: {fileID: 305998636216815829, guid: afd725a657042c14c813eee67a37385e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 305998636216815829, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: m_Positions.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -1539,7 +1543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <MaxAimingArmLength>k__BackingField
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <StrengthMultiplier>k__BackingField

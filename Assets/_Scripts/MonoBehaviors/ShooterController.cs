@@ -146,13 +146,17 @@ public class ShooterController : MonoBehaviour
     private void HandleAim()
     {
         if (!Input.Catapult.Toggle.IsPressed())
+        {
+            lineRenderer.enabled = false;
             return;
+        }
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.Catapult.Aim.ReadValue<Vector2>());
         aimingArmVector = (mousePosition.Truncate() - transform.position.Truncate())
             .ClampMagnitude(MaxAimingArmLength)
             .ClampConeX(AimingArmRotationRangeDegrees);
 
+        lineRenderer.enabled = true;
 		float angle = Mathf.Atan2(aimingArmVector.y, aimingArmVector.x) + Mathf.PI;
 		for (int t = 1; t < _ballisticCurve.TimeStepCount - 1; ++t)
         {
@@ -182,6 +186,7 @@ public class ShooterController : MonoBehaviour
         Projectile.AddForce(-aimingArmVector * StrengthMultiplier, ForceMode2D.Impulse);
 
         aimingArmVector = Vector2.zero;
+        lineRenderer.enabled = false;
         launched = true;
 
         OnProjectileLaunched.Invoke(Projectile.gameObject);
