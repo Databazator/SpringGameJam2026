@@ -622,7 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7397047444685609036}
   m_Layer: 30
-  m_Name: TempFocusPoint
+  m_Name: FocusPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -637,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 1459141939238500967}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.65, y: 22.61, z: 0.01038}
+  m_LocalPosition: {x: 101.4, y: 40.4, z: 0.01038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
