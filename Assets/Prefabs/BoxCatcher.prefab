@@ -141,7 +141,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -419,7 +419,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3d6f939e03c18be459a9cf56cb81a53b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +550,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.1711154, y: -1.15992}
+  m_Offset: {x: -0.2749207, y: -1.15992}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -560,7 +560,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.4156027, y: 0.7035737}
+  m_Size: {x: 5.369531, y: 0.7035737}
   m_EdgeRadius: 0
 --- !u!1 &1708765231898775568
 GameObject:
@@ -1002,11 +1002,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 1.26, z: -0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3675641110793193871}
   - {fileID: 7397462758184762486}
+  - {fileID: 7139150805534510156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5270562241701302233
@@ -1025,9 +1026,9 @@ MonoBehaviour:
   CatcherVisuals: {fileID: 7397462758184762486}
   ChangeHeadingDuration: 0.25
   ClipSpeedAtMaxSpeed: 1.5
-  MaxSpeed: 6
-  Acceleration: 20
-  Deceleration: 8
+  MaxSpeed: 8
+  Acceleration: 22
+  Deceleration: 10
   AccelerationDamping: 0.5
   OnCatCaught:
     m_PersistentCalls:
@@ -1035,6 +1036,7 @@ MonoBehaviour:
   HasControl: 1
   ChestHitboxTransform: {fileID: 3675641110793193871}
   ChestHitboxPositionTrack: {fileID: 9215770335546067646}
+  AnchorOffset: 5.6
   characterController: {fileID: 0}
 --- !u!50 &7149480858881262016
 Rigidbody2D:
@@ -1097,7 +1099,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04641664, y: 1.1531101}
+  m_Offset: {x: -0.04641664, y: 1.2556958}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1107,7 +1109,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2755694, y: 5.331011}
+  m_Size: {x: 1.2755694, y: 5.125839}
   m_EdgeRadius: 0
 --- !u!1 &6797701888510052199
 GameObject:
@@ -1167,7 +1169,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3d6f939e03c18be459a9cf56cb81a53b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1274,7 +1276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931891296199224113}
-  - component: {fileID: 6087374117889138488}
+  - component: {fileID: 4474213995935695292}
   m_Layer: 0
   m_Name: Sidehitbox
   m_TagString: Untagged
@@ -1297,8 +1299,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3675641110793193871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6087374117889138488
-BoxCollider2D:
+--- !u!60 &4474213995935695292
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1331,7 +1333,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.217219, y: 0.3355068}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1341,8 +1343,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7002969, y: 3.6944273}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.974388, y: 1.8204343}
+      - {x: -3.7168992, y: 2.53089}
+      - {x: -3.9104686, y: 2.524302}
+      - {x: -3.6095939, y: -1.5336301}
+      - {x: -2.8177586, y: -1.4406531}
+      - {x: -2.7498083, y: 1.4448987}
+  m_UseDelaunayMesh: 1
 --- !u!1 &8230877633463801911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1479,141 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatBoxHitbox
   Catcher: {fileID: 5270562241701302233}
+--- !u!1 &8676614609683475398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7139150805534510156}
+  - component: {fileID: 410387034531323006}
+  - component: {fileID: 2026178848918976334}
+  m_Layer: 0
+  m_Name: DistanceTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7139150805534510156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676614609683475398}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6329544962350740758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &410387034531323006
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676614609683475398}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 10}
+  m_Radius: 50
+--- !u!114 &2026178848918976334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676614609683475398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c930de81c3441ff4eab0a63422c383cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  <OnObjectEnter>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CinemachineTargetAdder, Assembly-CSharp
+        m_MethodName: AddMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6329544962350740758}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5270562241701302233}
+        m_TargetAssemblyTypeName: CatBoxCatcher, Assembly-CSharp
+        m_MethodName: EnableInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  <OnObjectExit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineTargetGroup, Unity.Cinemachine
+        m_MethodName: RemoveMember
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6329544962350740758}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5270562241701302233}
+        m_TargetAssemblyTypeName: CatBoxCatcher, Assembly-CSharp
+        m_MethodName: DisableInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8759409213345576961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7874950488192821936}
-  - component: {fileID: 2731549228186942299}
+  - component: {fileID: 2894465548462904526}
   m_Layer: 0
   m_Name: Sidehitbox (1)
   m_TagString: Untagged
@@ -1593,8 +1737,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3675641110793193871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2731549228186942299
-BoxCollider2D:
+--- !u!60 &2894465548462904526
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1627,7 +1771,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.217219, y: 0.050725758}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1637,5 +1781,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7002969, y: 3.124865}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.4250991, y: 1.99718}
+      - {x: -2.6759484, y: 2.0192826}
+      - {x: -3.579709, y: 1.0296766}
+      - {x: -3.6861703, y: -1.5402716}
+      - {x: -2.8630757, y: -1.6616943}
+      - {x: -2.7787545, y: 0.52729046}
+  m_UseDelaunayMesh: 1
