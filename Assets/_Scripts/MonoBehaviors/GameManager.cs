@@ -118,8 +118,7 @@ public class GameManager : MonoBehaviour
         }
         _catsCaught = 0;
 
-
-        DOVirtual.DelayedCall(1.5f, () =>
+        DOVirtual.DelayedCall(1f, () =>
         {
             TargetGroup.Targets.Clear();
             TargetGroup.AddMember(FocusGroupStartTarget1, 1, 1);
