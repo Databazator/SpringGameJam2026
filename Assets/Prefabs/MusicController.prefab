@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8090786250858383173}
   - component: {fileID: 1486481226774739406}
+  - component: {fileID: 2859205643011027510}
   m_Layer: 0
   m_Name: MusicController
   m_TagString: Untagged
@@ -129,3 +130,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2859205643011027510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029285206322764332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c5ae815f718d24bbca16c50d3a1d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Cosmetics.FadeEffect
+  _comment: 
+  duration_seconds: 1
+  alphaLow: 0
+  alphaHigh: 1
+  _onStart: 0
+  ease: 0
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
