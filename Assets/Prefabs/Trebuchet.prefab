@@ -438,6 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrebuchetController
   cat: {fileID: 0}
   focusTargets: {fileID: 0}
+  ghostPrefab: {fileID: 155385359298450560, guid: 6d36497e83edcfb46b0ec8820e99f0e4, type: 3}
   <OnCatCollidesEnvironment>k__BackingField:
     m_PersistentCalls:
       m_Calls:
