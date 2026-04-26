@@ -106,6 +106,7 @@ public class TrebuchetController : MonoBehaviour
     {
         Debug.Assert(cat == Cat);
         OnCatLaunched.Invoke(cat);
+        Debug.Log("CAT LAUNCHED!", this);
     }
 
     private void Shooter_OnProjectileReset(GameObject cat)

@@ -139,18 +139,18 @@ MonoBehaviour:
   Sounds:
   - Clip: {fileID: 8300000, guid: f3954fafd91605f40be138333bfb4d78, type: 3}
     PitchRange:
-      Min: 0.8
-      Max: 1.14
+      Min: 0.6
+      Max: 0.8
     VolumeRange:
       Min: 1.1
       Max: 1.4
   - Clip: {fileID: 8300000, guid: 6420070232ba15c4486d2332286a4d77, type: 3}
     PitchRange:
-      Min: 0.8
-      Max: 1.14
+      Min: 0.6
+      Max: 0.8
     VolumeRange:
-      Min: 1.9
-      Max: 2
+      Min: 1.1
+      Max: 1.4
   MinTimeBetweenPlaying: 0.4
 --- !u!82 &7565879397767837513
 AudioSource:

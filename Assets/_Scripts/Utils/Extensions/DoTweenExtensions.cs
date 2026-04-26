@@ -30,6 +30,8 @@ namespace MarkusSecundus.Utils.Extensions
 
         public static Tween DOFade(this Graphic self, float alphaEnd, float duration)=> DOTween.ToAlpha(() => self.color, a=>self.color = a, alphaEnd, duration);
 
+        public static Tween DOVolume(this AudioSource self, float volumeEnd, float duration) => DOTween.To(() => self.volume, v => self.volume = v, volumeEnd, duration);
+
 		public static TweenerCore<Quaternion, Vector3, QuaternionOptions> DOTargetRotation(this JointRotationHelper joint, Vector3 endValue, float duration)
             => DOTween.To(() => joint.CurrentRotation, joint.SetTargetRotation, endValue, duration).SetTarget(joint).SetUpdate(UpdateType.Fixed);
     }
