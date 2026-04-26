@@ -267,27 +267,27 @@ PrefabInstance:
       objectReference: {fileID: 1767778559}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.94514
+      value: 95.754135
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.8014
+      value: 40.4
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.994762
+      value: -9.98962
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.94514
+      value: 95.754135
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.8014
+      value: 40.4
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0052375956
+      value: 0.01038
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -338,67 +338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11c12ead14752845b415c2f953e69e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterController
---- !u!1 &444560217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 444560218}
-  - component: {fileID: 444560219}
-  m_Layer: 0
-  m_Name: CatLandedInBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &444560218
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444560217}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &444560219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444560217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820e9fa06758b1a46b9309b90f0aad28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Actions.EventTimer
-  ToRun:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1865093268}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CatLandedInBox
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  DelaySeconds: 2.5
-  OnStartup: 0
 --- !u!1 &535687636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1049,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 36.04922
+  orthographic size: 1.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1135,7 +1074,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.129993, y: 33.54745, z: -9.994762}
+  m_LocalPosition: {x: 101.4, y: 40.4, z: -9.98962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1319,10 +1258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trebuchet
       objectReference: {fileID: 0}
-    - target: {fileID: 4817826540724868325, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1865093268}
     - target: {fileID: 6204287583714079008, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1379,6 +1314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8295741374053637329, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865093268}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1552,4 +1491,3 @@ SceneRoots:
   - {fileID: 1170682783}
   - {fileID: 1483799466}
   - {fileID: 75742448}
-  - {fileID: 444560218}
