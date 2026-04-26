@@ -1036,6 +1036,7 @@ MonoBehaviour:
   HasControl: 1
   ChestHitboxTransform: {fileID: 3675641110793193871}
   ChestHitboxPositionTrack: {fileID: 9215770335546067646}
+  AnchorOffset: 5.6
   characterController: {fileID: 0}
 --- !u!50 &7149480858881262016
 Rigidbody2D:
