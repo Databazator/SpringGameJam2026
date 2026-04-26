@@ -1,5 +1,6 @@
 using MarkusSecundus.Utils.Primitives;
 using MarkusSecundus.Utils.Randomness;
+using System.Collections;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
@@ -23,6 +24,7 @@ public class SoundPlayer : MonoBehaviour
         {
 			_src = this.gameObject.AddComponent<AudioSource>();
             _src.loop = false;
+            _src.playOnAwake = false;
         }
     }
 
@@ -44,5 +46,27 @@ public class SoundPlayer : MonoBehaviour
         _src.pitch = pitch;
         _src.PlayOneShot(sound.Clip, volume);
         Debug.Log($"Playing {sound.Clip}, vol: {volume}, pitch: {pitch}", this);
+    }
+
+    Coroutine _playing = null;
+    public void StartPlaying()
+    {
+        _playing = StartCoroutine(impl());
+        IEnumerator impl()
+        {
+            while (true)
+            {
+                DoPlay();
+                yield return null;
+            }
+        }
+    }
+    public void StopPlaying()
+    {
+        if (_playing != null)
+        {
+            StopCoroutine(_playing);
+            _playing = null;
+        }
     }
 }
