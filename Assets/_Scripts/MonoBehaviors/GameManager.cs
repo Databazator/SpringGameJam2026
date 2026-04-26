@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
+    private List<CatController> _cats;
 
     public bool Active = true;
 
