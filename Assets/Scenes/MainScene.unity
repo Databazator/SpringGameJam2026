@@ -141,14 +141,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 62641519}
     - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
-      propertyPath: _positionOffsets.x
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
-      propertyPath: _repositionDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
       propertyPath: OnCatLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1865093268}
@@ -1149,6 +1141,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxCatcher
       objectReference: {fileID: 0}
+    - target: {fileID: 8071275780872585895, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_Name
+      value: CatEnterTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1403,6 +1407,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603405892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9082896750891990226, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+  m_PrefabInstance: {fileID: 1767778558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e9fa06758b1a46b9309b90f0aad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Actions.EventTimer
 --- !u!114 &1657986027 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
@@ -1426,10 +1441,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trebuchet
       objectReference: {fileID: 0}
-    - target: {fileID: 3927139688527621314, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6204287583714079008, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1446,9 +1457,13 @@ PrefabInstance:
       propertyPath: <OnCatReloaded>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 213904711}
-    - target: {fileID: 6888411457718805598, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1603405892}
+    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTimer
       objectReference: {fileID: 0}
     - target: {fileID: 8114525203289797284, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1490,9 +1505,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3927139688527621314, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-    - {fileID: 3844176344270081019, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+    - target: {fileID: 9082896750891990226, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865093268}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
