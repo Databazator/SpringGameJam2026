@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 112217322133572731}
   - component: {fileID: 8560494803365137374}
   - component: {fileID: 5272560531725445739}
+  - component: {fileID: 1029484992517410852}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -152,6 +153,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnShowVictoryScreen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8135017767618118007}
+        m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
+        m_MethodName: DoPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1029484992517410852}
+        m_TargetAssemblyTypeName: FadeOutTheMainMusic, Assembly-CSharp
+        m_MethodName: DoFadeOutTheMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1029484992517410852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814675259601877664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1712723d449f346b24af58bbba8f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FadeOutTheMainMusic
+  MusicObjectName: MusicController
 --- !u!1001 &717425038599473550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,3 +552,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a49004efd13f3e4bafce03f2b260cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleScreen
+--- !u!114 &8135017767618118007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1221791947576477441, guid: ab94bfe3c361f034a86c8a2d363e0e9a, type: 3}
+  m_PrefabInstance: {fileID: 6922541440918881910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057401d18356ba74d8b25e4be7a9ac2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundPlayer

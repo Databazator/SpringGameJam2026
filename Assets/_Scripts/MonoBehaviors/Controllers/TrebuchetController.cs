@@ -15,6 +15,8 @@ public class TrebuchetController : MonoBehaviour
     private GameObject cat;
     [SerializeField]
     private CinemachineTargetGroup focusTargets;
+    [SerializeField]
+    private GameObject ghostPrefab;
 
     /// <summary>
     /// Occurs when cat collides with the environment.
@@ -88,9 +90,19 @@ public class TrebuchetController : MonoBehaviour
         shooterController.ResetProjectile();
     }
 
+    private static float lastTime;
+
     private void CatLander_OnEnvironemntCollision(GameObject cat)
     {
         Debug.Assert(cat == Cat);
+
+        if (Time.realtimeSinceStartup - lastTime >= 5.0f)
+        {
+            GameObject gameObject = Instantiate(ghostPrefab);
+            gameObject.transform.position = cat.transform.position;
+            lastTime = Time.realtimeSinceStartup;
+        }
+
         OnCatCollidesEnvironment.Invoke(cat);
     }
 

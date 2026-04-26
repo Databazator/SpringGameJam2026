@@ -62,11 +62,14 @@ public class UIManager : MonoBehaviour
         currentScreen?.ShowScreen(0.5f);
     }
 
+    [SerializeField] UnityEvent OnShowVictoryScreen;
+
     public void ShowVictoryScreen()
     {
         InputEnabled = false;
         DOVirtual.DelayedCall(1f, () => InputEnabled = true);
         ShowScreen(VictoryScreen);
+        OnShowVictoryScreen?.Invoke();
     }
 
     public void ShowDefeatScreen()
