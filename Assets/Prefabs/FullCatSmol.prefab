@@ -284,14 +284,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundPlayer
   Sounds:
-  - Clip: {fileID: 8300000, guid: 9ef50f4888fadc643b522f620e42fe01, type: 3}
+  - Clip: {fileID: 8300000, guid: 0e36210e80d7e2e4190ab8b031531831, type: 3}
     PitchRange:
-      Min: 0.8
-      Max: 0.9
+      Min: 0.95
+      Max: 1
     VolumeRange:
       Min: 1
       Max: 1
-  MinTimeBetweenPlaying: 0.3
+  - Clip: {fileID: 8300000, guid: 9ef50f4888fadc643b522f620e42fe01, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  - Clip: {fileID: 8300000, guid: 5d809c9b6aca2f7479726c86f152b6df, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  - Clip: {fileID: 8300000, guid: 35dcd956c1114ed479137273a38fe136, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  - Clip: {fileID: 8300000, guid: 0d222236719c46d4f92c6f6797e66d0f, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  - Clip: {fileID: 8300000, guid: 6d0fdc5b295992741b9537cf9c387989, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  - Clip: {fileID: 8300000, guid: 997dd07e929095b459565242a9aaacb6, type: 3}
+    PitchRange:
+      Min: 0.8
+      Max: 1.1
+    VolumeRange:
+      Min: 1
+      Max: 1
+  MinTimeBetweenPlaying: 1.2
 --- !u!1 &4216570391006428930
 GameObject:
   m_ObjectHideFlags: 0
