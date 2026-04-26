@@ -54,12 +54,14 @@ public class CatBoxCatcher : MonoBehaviour
 
     public void CatCaught(GameObject cat)
     {
-        Debug.Log($"Object caught in box: {cat.name}");
-        OnCatCaught.Invoke(cat.transform);
-
+        Debug.Log($"Object caught in box: {cat.name}");  
 
         //Add spring joint to cat so it stays in the box :3
         Rigidbody2D catRb = cat.GetComponent<Rigidbody2D>();
+        if(catRb != null) Destroy(catRb);
+        Collider2D catCol = cat.GetComponent<Collider2D>();
+        if(catCol != null) Destroy(catCol);
+
         int newLayer = LayerMask.NameToLayer("BoxedCat");
         var children = cat.GetComponentsInChildren<Transform>();
         foreach(var chld in children)
@@ -67,19 +69,23 @@ public class CatBoxCatcher : MonoBehaviour
             chld.gameObject.layer = newLayer;
         }
 
-        //cat.transform.DOScale(cat.transform.localScale * 0.7f, 0.5f).SetEase(Ease.InOutQuad);
-        if (!catRb)
-        {
-            Debug.Log($"Cat {cat.name} doesnt have a rigidbody2D");
-            return;
-        }
-        SpringJoint2D spring = this.AddComponent<SpringJoint2D>();
+        cat.transform.SetParent(this.transform, true);
 
-        spring.anchor = new Vector2(0, AnchorOffset);
-        spring.connectedBody = catRb;
-        spring.autoConfigureDistance = false;
-        spring.distance = Vector3.Distance(transform.position + Vector3.up * AnchorOffset, cat.transform.position);
-        spring.enableCollision = true;
+        OnCatCaught.Invoke(cat.transform);
+
+        ////cat.transform.DOScale(cat.transform.localScale * 0.7f, 0.5f).SetEase(Ease.InOutQuad);
+        //if (!catRb)
+        //{
+        //    Debug.Log($"Cat {cat.name} doesnt have a rigidbody2D");
+        //    return;
+        //}
+        //SpringJoint2D spring = this.AddComponent<SpringJoint2D>();
+
+        //spring.anchor = new Vector2(0, AnchorOffset);
+        //spring.connectedBody = catRb;
+        //spring.autoConfigureDistance = false;
+        //spring.distance = Vector3.Distance(transform.position + Vector3.up * AnchorOffset, cat.transform.position);
+        //spring.enableCollision = true;
     }
 
     // Update is called once per frame
