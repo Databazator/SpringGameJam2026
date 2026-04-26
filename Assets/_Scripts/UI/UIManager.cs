@@ -91,12 +91,12 @@ public class UIManager : MonoBehaviour
             ShowScreen(null);
             OnStartGame.Invoke();
         }
-        else if (currentScreen == TitleScreen)
+        else if (currentScreen == VictoryScreen)
         {
             currentScreen?.HideScreen();
             OnPlayAgain.Invoke();
         }
-        else if (currentScreen == TitleScreen)
+        else if (currentScreen == DefeatScreen)
         {
             currentScreen?.HideScreen();
             OnPlayAgain.Invoke();
