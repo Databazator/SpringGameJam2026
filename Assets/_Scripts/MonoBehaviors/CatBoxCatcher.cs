@@ -24,6 +24,8 @@ public class CatBoxCatcher : MonoBehaviour
 
     public UnityEvent<Transform> OnCatCaught;
 
+    public UnityEvent OnIsWalking;
+
     public bool HasControl = true;
 
     [Header("BoxHitbox")]
@@ -110,6 +112,8 @@ public class CatBoxCatcher : MonoBehaviour
         if (Mathf.Abs(currentHorVelocity) > 0f)
         {
             Animator.SetBool("IsWalking", true);
+
+            OnIsWalking.Invoke();
 
             Animator.speed = Mathf.Lerp(1f, ClipSpeedAtMaxSpeed, speedFactor);
         }
