@@ -114,6 +114,12 @@ public class ShooterController : MonoBehaviour
         HandleShooting();
     }
 
+    public void SetCatAsProjectile(CatController cat)
+    {
+        projectile = cat.GetComponent<Rigidbody2D>();
+        ResetProjectile();
+    }
+
     /// <summary>
     /// Resets projectile to shooter's starting point and reset it's physical properties.
     /// </summary>
