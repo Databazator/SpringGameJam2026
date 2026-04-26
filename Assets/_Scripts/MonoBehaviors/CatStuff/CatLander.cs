@@ -18,12 +18,14 @@ public class CatLander : MonoBehaviour
     [SerializeField]
     public UnityEvent<GameObject> OnLandInBox = new();
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Environment"))
-            OnCollidesEnvironment.Invoke(gameObject);
+    private void OnCollisionEnter2D(Collision2D collision) => OnTriggerEnter2D(collision.collider);
 
-        if (collision.gameObject.layer == LayerMask.NameToLayer("CatBox"))
-            OnLandInBox.Invoke(gameObject);
-    }
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Environment"))
+			OnCollidesEnvironment.Invoke(gameObject);
+
+		if (collision.gameObject.layer == LayerMask.NameToLayer("CatBox"))
+			OnLandInBox.Invoke(gameObject);
+	}
 }

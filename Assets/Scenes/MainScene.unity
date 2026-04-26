@@ -876,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.39
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -910,9 +910,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxCatcher
       objectReference: {fileID: 0}
-    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_Layer
-      value: 8
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[0].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3954fafd91605f40be138333bfb4d78, type: 3}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6420070232ba15c4486d2332286a4d77, type: 3}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].VolumeRange.Max
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].VolumeRange.Min
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

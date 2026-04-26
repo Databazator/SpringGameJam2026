@@ -18,6 +18,7 @@ public class CatController : MonoBehaviour
     private float _input;
 
     public UnityEvent OnDeath;
+    public UnityEvent OnFired;
 
     [SerializeField] float _airNudgeForce = 10f;
     [SerializeField] float _airNudgeCooldown = 0.25f;
@@ -78,7 +79,9 @@ public class CatController : MonoBehaviour
     public void DoShoot()
     {
         _spinner.SetFlying();
-    }
+        OnFired?.Invoke();
+
+	}
     public void PrepareShooting(float intensity)
     {
         _spinner.SetPreparation(intensity);
