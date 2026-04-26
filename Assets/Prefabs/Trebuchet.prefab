@@ -1539,7 +1539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <MaxAimingArmLength>k__BackingField
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7395950810488595636, guid: afd725a657042c14c813eee67a37385e, type: 3}
       propertyPath: <StrengthMultiplier>k__BackingField
