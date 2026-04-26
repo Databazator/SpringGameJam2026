@@ -1,8 +1,10 @@
+using DG.Tweening;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,6 +21,9 @@ public class UIManager : MonoBehaviour
     private UIScreen currentScreen;
 
     List<UIScreen> screens;
+
+    public bool InputEnabled { get; private set; } = true;
+
     private void Awake()
     {
         screens = new List<UIScreen>{
@@ -59,6 +64,8 @@ public class UIManager : MonoBehaviour
 
     public void ShowVictoryScreen()
     {
+        InputEnabled = false;
+        DOVirtual.DelayedCall(1f, () => InputEnabled = true);
         ShowScreen(VictoryScreen);
     }
 
@@ -73,9 +80,9 @@ public class UIManager : MonoBehaviour
         if (currentScreen != null) // null is game/empty screen
         {
             if (Keyboard.current.anyKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
-            {
-                //Debug.Log($"UIManager on any key down");
-                AnyKeyPressed();
+            {//Debug.Log($"UIManager on any key down");
+                if (InputEnabled)                
+                    AnyKeyPressed();
             }            
         }        
     }
@@ -94,12 +101,16 @@ public class UIManager : MonoBehaviour
         else if (currentScreen == VictoryScreen)
         {
             currentScreen?.HideScreen();
-            OnPlayAgain.Invoke();
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //OnPlayAgain.Invoke();
         }
         else if (currentScreen == DefeatScreen)
         {
             currentScreen?.HideScreen();
-            OnPlayAgain.Invoke();
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //OnPlayAgain.Invoke();
         }
     }
 }

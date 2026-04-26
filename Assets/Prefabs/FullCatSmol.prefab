@@ -192,10 +192,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _airNudgeForce: 10
+  _airNudgeForce: 15
+  _airNudgeSideForceFrac: 0.1
   _airNudgeCooldown: 0.75
   _airNudgeScalePopMult: 0.75
   _airNudgeScalePopDuration: 0.5
+  _airNudgeHorVelocityMult: 0.85
   HasAirControl: 1
 --- !u!114 &2107796970643798272
 MonoBehaviour:

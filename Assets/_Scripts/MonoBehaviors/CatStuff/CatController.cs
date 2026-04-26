@@ -21,9 +21,11 @@ public class CatController : MonoBehaviour
     public UnityEvent OnFired;
 
     [SerializeField] float _airNudgeForce = 10f;
+    [SerializeField] float _airNudgeSideForceFrac = 0.1f;
     [SerializeField] float _airNudgeCooldown = 0.25f;
     [SerializeField] float _airNudgeScalePopMult = 0.9f;
     [SerializeField] float _airNudgeScalePopDuration = 0.25f;
+    [SerializeField] float _airNudgeHorVelocityMult = 0.85f;
     private bool _canAirNudge = true;
 
     public bool HasAirControl = true;
@@ -60,7 +62,9 @@ public class CatController : MonoBehaviour
             {
                 _canAirNudge = false;
 
-                _rb.AddForce(Vector2.up * Mathf.Sign(_input) * _airNudgeForce, ForceMode2D.Impulse);
+                _rb.linearVelocity = _rb.linearVelocity.MultiplyElems(new Vector2(_airNudgeHorVelocityMult, 1));
+
+                _rb.AddForce(Vector2.up * Mathf.Sign(_input) * _airNudgeForce + Vector2.right * _airNudgeForce * _airNudgeSideForceFrac, ForceMode2D.Impulse);
 
                 transform.DOScale(_ogScale * _airNudgeScalePopMult, _airNudgeScalePopDuration * 0.25f).OnComplete(() =>
                 {
