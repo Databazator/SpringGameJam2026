@@ -125,7 +125,7 @@ public class ShooterController : MonoBehaviour
     public void SetCatAsProjectile(CatController cat)
     {
         projectile = cat.GetComponent<Rigidbody2D>();
-        ResetProjectile();
+        //ResetProjectile();
     }
 
     /// <summary>

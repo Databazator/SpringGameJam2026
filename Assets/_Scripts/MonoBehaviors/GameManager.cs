@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+
+    private List<CatController> _cats;
 
     public bool Active = true;
 
@@ -154,9 +157,9 @@ public class GameManager : MonoBehaviour
                 // setup trebuchet and shooter refs after cat loading tween finishes
                 DOVirtual.DelayedCall(CatQueue.RepositionDuration, () =>
                 {
-                    Shooter.SetCatAsProjectile(c);
-                    TrebuchetAnimEvents.ProjectileTransform = c.transform;
                     Trebuchet.Cat = c.gameObject;
+                    Shooter.SetCatAsProjectile(c);
+                    TrebuchetAnimEvents.ProjectileTransform = c.transform;                    
                     OnCatChanged.Invoke(c.gameObject);
                     CameraFocusAdder.AddMember(c.transform);
 
