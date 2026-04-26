@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
 
         if (currentState == state) return;
 
-        Debug.Log($"Set state to {state.DisplayName()}");
+        Debug.Log($"Set state to {state.ToString()}");
 
         currentState = state;
 
