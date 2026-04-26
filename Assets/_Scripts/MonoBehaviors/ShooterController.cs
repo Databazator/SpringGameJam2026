@@ -28,6 +28,11 @@ public class ShooterController : MonoBehaviour
     private Transform visualPivot;
 
     /// <summary>
+    /// Flag for setting if trebuchet can be aimed and fired
+    /// </summary>
+    public bool IsControlActive = true;
+
+    /// <summary>
     /// Projectile which could be shot. Projectile does not get automatically reloaded.
     /// </summary>
     [field: SerializeField]
@@ -111,6 +116,8 @@ public class ShooterController : MonoBehaviour
 
     private void Update()
     {
+        if (!IsControlActive) return;
+
         HandleAim();
         HandleShooting();
     }

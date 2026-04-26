@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (Shooter != null) Shooter.IsControlActive = false;
+
         LoadCatsIntoQueue();
 
         if (UIManager == null || !UIManager.gameObject.activeInHierarchy)
@@ -108,6 +110,8 @@ public class GameManager : MonoBehaviour
         _catsCaught = 0;
 
         SetState(GameState.LoadingCat);
+
+        Debug.Log("Start Game Called");
     }
 
     public void CatLoaded()
@@ -118,7 +122,7 @@ public class GameManager : MonoBehaviour
     public void CatLandedInBox()
     {
         _catsCaught++;
-        if(CatQueue.Empty()) // all cats made it -> Victory screen
+        if(CatQueue.Empty() && _catsCaught == _catCount) // all cats made it -> Victory screen
         {
             UIManager.ShowVictoryScreen();
             return;
@@ -132,6 +136,8 @@ public class GameManager : MonoBehaviour
         if (!Active) return;
 
         if (currentState == state) return;
+
+        Debug.Log($"Set state to {state.DisplayName()}");
 
         currentState = state;
 
@@ -154,6 +160,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentState == GameState.Launch)
         {
+            Shooter.IsControlActive = true;
             TrebuchetLoadCam.Priority = 0;
             FocusGroupCam.Priority = 10;
         }
