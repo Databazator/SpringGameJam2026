@@ -1,4 +1,5 @@
 using EasyButtons;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -12,6 +13,8 @@ public class TrebuchetController : MonoBehaviour
     /// </summary>
     [SerializeField]
     private GameObject cat;
+    [SerializeField]
+    private CinemachineTargetGroup focusTargets;
 
     /// <summary>
     /// Occurs when cat collides with the environment.
@@ -72,11 +75,8 @@ public class TrebuchetController : MonoBehaviour
         }
 
         shooterController = GetComponentInChildren<ShooterController>();
-        if (shooterController.Projectile != null)
-        {
-            shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
-            shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
-        }
+        shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
+        shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
     }
 
     /// <summary>
@@ -98,6 +98,8 @@ public class TrebuchetController : MonoBehaviour
     {
         Debug.Assert(cat == Cat);
         OnCatLandInBox.Invoke(cat);
+
+        focusTargets.RemoveMember(cat.transform);
     }
 
     private void Shooter_OnProjectileLaunched(GameObject cat)

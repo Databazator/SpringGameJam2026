@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &40787112 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6867156560352494481, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-  m_PrefabInstance: {fileID: 1767778558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &62641519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 792205142080527555, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
@@ -409,27 +404,27 @@ PrefabInstance:
       objectReference: {fileID: 1767778559}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.279675
+      value: 45.94514
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.239983
+      value: 20.8014
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.994764
+      value: -9.994762
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.279675
+      value: 45.94514
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.239983
+      value: 20.8014
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0052356394
+      value: 0.0052375956
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -510,7 +505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 40787112}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &444560219
 MonoBehaviour:
@@ -1160,11 +1155,11 @@ PrefabInstance:
       objectReference: {fileID: 213904711}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.1
+      value: 197.6
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1201,18 +1196,6 @@ PrefabInstance:
     - target: {fileID: 6377632256574683635, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_Name
       value: BoxCatcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 8071275780872585895, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_Name
-      value: CatEnterTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1282,7 +1265,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 37.926563
+  orthographic size: 36.04922
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1307,7 +1290,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.460003, y: 21.070002, z: -12.028139}
+  m_LocalPosition: {x: 51.129993, y: 33.54745, z: -9.994762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1491,6 +1474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trebuchet
       objectReference: {fileID: 0}
+    - target: {fileID: 4817826540724868325, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1865093268}
     - target: {fileID: 6204287583714079008, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1507,14 +1494,6 @@ PrefabInstance:
       propertyPath: <OnCatReloaded>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 213904711}
-    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartTimer
-      objectReference: {fileID: 0}
     - target: {fileID: 8114525203289797284, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.86
@@ -1555,12 +1534,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3927139688527621314, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-    - {fileID: 3844176344270081019, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 6888411457718805598, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-    - {fileID: 2473271468919345510, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
@@ -1607,8 +1582,12 @@ MonoBehaviour:
   CatHolderTransform: {fileID: 535687637}
   TrebuchetLoadCam: {fileID: 1212959780}
   FocusGroupCam: {fileID: 240094656}
+  CameraFocusAdder: {fileID: 213904711}
   CatLoadStateEnterLogicDelay: 2
   LivesCount: 9
+  <OnCatChanged>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1865093269
 Transform:
   m_ObjectHideFlags: 0
@@ -1728,3 +1707,4 @@ SceneRoots:
   - {fileID: 1170682783}
   - {fileID: 1483799466}
   - {fileID: 75742448}
+  - {fileID: 444560218}
