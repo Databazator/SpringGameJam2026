@@ -1,4 +1,5 @@
 using EasyButtons;
+using MarkusSecundus.Utils.Extensions;
 using MarkusSecundus.Utils.Primitives;
 using UnityEngine;
 using UnityEngine.Events;
@@ -184,7 +185,7 @@ public class ShooterController : MonoBehaviour
 		for (int t = 1; t < _ballisticCurve.TimeStepCount - 1; ++t)
         {
             float time = t * _ballisticCurve.TimeStep;
-            Vector2 pos = GetBallisticCurvePoint(transform.position.xy(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * projectile.gravityScale, time);
+            Vector2 pos = GetBallisticCurvePoint(transform.position.xy(), aimingArmVector.magnitude * StrengthMultiplier, angle, Physics2D.gravity.y * (projectile ? projectile.gravityScale : 1f), time);
             lineRenderer.SetPosition(lineRenderer.positionCount - _ballisticCurve.TimeStepCount + t + 1, pos);
         }
         Projectile.GetComponent<CatController>().PrepareShooting(aimingArmVector.magnitude / MaxAimingArmLength);

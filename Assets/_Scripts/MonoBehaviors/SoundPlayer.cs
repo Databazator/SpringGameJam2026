@@ -34,10 +34,11 @@ public class SoundPlayer : MonoBehaviour
     double _nextPlayingTimestamp => _lastPlayingTimestamp + MinTimeBetweenPlaying;
     public void DoPlay()
     {
+        if(! (this.enabled && this.gameObject.activeInHierarchy)) 
+            return;
         if (MinTimeBetweenPlaying > 0.0 && (Time.timeAsDouble < _nextPlayingTimestamp))
-        {
-			return;
-		}
+            return;
+
         _lastPlayingTimestamp = Time.timeAsDouble;
 
         var sound = rand.Choice(Sounds);
