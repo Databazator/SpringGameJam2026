@@ -335,6 +335,7 @@ Transform:
   - {fileID: 127430272}
   - {fileID: 1106587674}
   - {fileID: 1112982315}
+  - {fileID: 1370192068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &738733778 stripped
@@ -846,6 +847,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
+--- !u!4 &1370192068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1126730163159925895, guid: f464ded2e4a4cb140a126ee32b47bbcb, type: 3}
+  m_PrefabInstance: {fileID: 1370192066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1530174637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,7 +890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.39
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -917,6 +923,26 @@ PrefabInstance:
     - target: {fileID: 6377632256574683635, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_Name
       value: BoxCatcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[0].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3954fafd91605f40be138333bfb4d78, type: 3}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6420070232ba15c4486d2332286a4d77, type: 3}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].VolumeRange.Max
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980586277678410193, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: Sounds.Array.data[1].VolumeRange.Min
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
