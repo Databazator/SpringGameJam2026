@@ -215,9 +215,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press any key to play again...
+  m_text: 'Pray, strike any key to proceed forthwith again...
 
-    (otherwise use alt+f4)'
+    (otherwise use
+    alt+f4)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b2332dfe77ea2b644b942d478691306f, type: 2}
   m_sharedMaterial: {fileID: 8035068442565381905, guid: b2332dfe77ea2b644b942d478691306f, type: 2}
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Feline Assets Successfully Secured
+  m_text: All felines be safely secured
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b36b2202e193bb146813d4dbc655f8f5, type: 2}
   m_sharedMaterial: {fileID: -25166115077035337, guid: b36b2202e193bb146813d4dbc655f8f5, type: 2}
