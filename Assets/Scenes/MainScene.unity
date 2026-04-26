@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &40787112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6867156560352494481, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+  m_PrefabInstance: {fileID: 1767778558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &62641519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 792205142080527555, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
@@ -140,14 +145,6 @@ PrefabInstance:
       propertyPath: TrebuchetSlingPos
       value: 
       objectReference: {fileID: 62641519}
-    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
-      propertyPath: _positionOffsets.x
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
-      propertyPath: _repositionDuration
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4388203731762922385, guid: 9a081452c2914c54684af0f32c903a08, type: 3}
       propertyPath: OnCatLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -401,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 3529375356475123212, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: Targets.Array.data[1].Object
       value: 
-      objectReference: {fileID: 835279825}
+      objectReference: {fileID: 0}
     - target: {fileID: 3529375356475123212, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: Targets.Array.data[2].Object
       value: 
@@ -412,27 +409,27 @@ PrefabInstance:
       objectReference: {fileID: 1767778559}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.239372
+      value: 43.279675
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.380503
+      value: 21.239983
       objectReference: {fileID: 0}
     - target: {fileID: 6690225109076994130, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.451845
+      value: -9.994764
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.239372
+      value: 43.279675
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.380503
+      value: 21.239983
       objectReference: {fileID: 0}
     - target: {fileID: 7918296427845197743, guid: 70a3e2309f4d6394da1785f2f582bff0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.4518456
+      value: 0.0052356394
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -483,6 +480,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11c12ead14752845b415c2f953e69e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterController
+--- !u!1 &444560217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444560218}
+  - component: {fileID: 444560219}
+  m_Layer: 0
+  m_Name: CatLandedInBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444560218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444560217}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 40787112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444560219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444560217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e9fa06758b1a46b9309b90f0aad28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UtilAssembly::MarkusSecundus.Utils.Behaviors.Actions.EventTimer
+  ToRun:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1865093268}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CatLandedInBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DelaySeconds: 2.5
+  OnStartup: 0
 --- !u!1 &535687636
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,11 +589,6 @@ MonoBehaviour:
 --- !u!4 &742679495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8114525203289797284, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-  m_PrefabInstance: {fileID: 1767778558}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &835279825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8414034085180370953, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
   m_PrefabInstance: {fileID: 1767778558}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &948647767
@@ -1149,6 +1202,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxCatcher
       objectReference: {fileID: 0}
+    - target: {fileID: 8071275780872585895, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_Name
+      value: CatEnterTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347691064788564915, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1217,7 +1282,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 33.03984
+  orthographic size: 37.926563
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1242,7 +1307,7 @@ Transform:
   m_GameObject: {fileID: 1530192434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.410007, y: 30.538065, z: -15.451845}
+  m_LocalPosition: {x: 48.460003, y: 21.070002, z: -12.028139}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1426,10 +1491,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trebuchet
       objectReference: {fileID: 0}
-    - target: {fileID: 3927139688527621314, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6204287583714079008, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: ToRun.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1446,9 +1507,13 @@ PrefabInstance:
       propertyPath: <OnCatReloaded>k__BackingField.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 213904711}
-    - target: {fileID: 6888411457718805598, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473461549823540001, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+      propertyPath: <OnCatLandInBox>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartTimer
       objectReference: {fileID: 0}
     - target: {fileID: 8114525203289797284, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,7 +1558,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3927139688527621314, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
     - {fileID: 3844176344270081019, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6888411457718805598, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
+    - {fileID: 2473271468919345510, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 122b8b5f365c21a45bb1e2e82cc9a9a1, type: 3}
@@ -1540,7 +1607,7 @@ MonoBehaviour:
   CatHolderTransform: {fileID: 535687637}
   TrebuchetLoadCam: {fileID: 1212959780}
   FocusGroupCam: {fileID: 240094656}
-  CatLoadStateEnterLogicDelay: 2.5
+  CatLoadStateEnterLogicDelay: 2
   LivesCount: 9
 --- !u!4 &1865093269
 Transform:
