@@ -127,6 +127,7 @@ public class ShooterController : MonoBehaviour
         projectile.transform.rotation = Quaternion.Euler(Vector3.zero);
         projectile.transform.SetParent(visualPivot, true);
         projectile.GetComponentInChildren<CatSpinner>().SetIdle();
+        projectile.GetComponentInChildren<CatController>().SetAirNudgeControl(true);
 
         animationEvents.ProjectileTransform = projectile.transform;
         if (launched)

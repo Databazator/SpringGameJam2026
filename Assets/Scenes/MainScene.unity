@@ -669,11 +669,11 @@ PrefabInstance:
       objectReference: {fileID: 213904711}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 205.9
+      value: 26.1
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.14
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 6329544962350740758, guid: 5ad1d191178e8be41972781d09a1a1ba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1072,6 +1072,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40cbf8ea513a964ba7eeabc876024af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Cats: []
+  TrebuchetSlingPos: {fileID: 0}
+  _positionOffsets: {x: 0, y: 0, z: 0}
+  _repositionDuration: 0
+  _repositionRandomOffset: 0
+  OnCatLoaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1777046201
 Transform:
   m_ObjectHideFlags: 0

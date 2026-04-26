@@ -419,7 +419,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3d6f939e03c18be459a9cf56cb81a53b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +550,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.1711154, y: -1.15992}
+  m_Offset: {x: -0.2749207, y: -1.15992}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -560,7 +560,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.4156027, y: 0.7035737}
+  m_Size: {x: 5.369531, y: 0.7035737}
   m_EdgeRadius: 0
 --- !u!1 &1708765231898775568
 GameObject:
@@ -1026,9 +1026,9 @@ MonoBehaviour:
   CatcherVisuals: {fileID: 7397462758184762486}
   ChangeHeadingDuration: 0.25
   ClipSpeedAtMaxSpeed: 1.5
-  MaxSpeed: 6
-  Acceleration: 20
-  Deceleration: 8
+  MaxSpeed: 8
+  Acceleration: 22
+  Deceleration: 10
   AccelerationDamping: 0.5
   OnCatCaught:
     m_PersistentCalls:
@@ -1099,7 +1099,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04641664, y: 1.1531101}
+  m_Offset: {x: -0.04641664, y: 1.2556958}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1109,7 +1109,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2755694, y: 5.331011}
+  m_Size: {x: 1.2755694, y: 5.125839}
   m_EdgeRadius: 0
 --- !u!1 &6797701888510052199
 GameObject:
@@ -1169,7 +1169,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3d6f939e03c18be459a9cf56cb81a53b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1276,7 +1276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931891296199224113}
-  - component: {fileID: 6087374117889138488}
+  - component: {fileID: 4474213995935695292}
   m_Layer: 0
   m_Name: Sidehitbox
   m_TagString: Untagged
@@ -1299,8 +1299,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3675641110793193871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6087374117889138488
-BoxCollider2D:
+--- !u!60 &4474213995935695292
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1333,7 +1333,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.217219, y: 0.3355068}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1343,8 +1343,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7002969, y: 3.6944273}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.974388, y: 1.8204343}
+      - {x: -3.7168992, y: 2.53089}
+      - {x: -3.9104686, y: 2.524302}
+      - {x: -3.6095939, y: -1.5336301}
+      - {x: -2.8177586, y: -1.4406531}
+      - {x: -2.7498083, y: 1.4448987}
+  m_UseDelaunayMesh: 1
 --- !u!1 &8230877633463801911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7874950488192821936}
-  - component: {fileID: 2731549228186942299}
+  - component: {fileID: 2894465548462904526}
   m_Layer: 0
   m_Name: Sidehitbox (1)
   m_TagString: Untagged
@@ -1730,8 +1737,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3675641110793193871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2731549228186942299
-BoxCollider2D:
+--- !u!60 &2894465548462904526
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1764,7 +1771,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -3.217219, y: 0.050725758}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1774,5 +1781,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7002969, y: 3.124865}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.4250991, y: 1.99718}
+      - {x: -2.6759484, y: 2.0192826}
+      - {x: -3.579709, y: 1.0296766}
+      - {x: -3.6861703, y: -1.5402716}
+      - {x: -2.8630757, y: -1.6616943}
+      - {x: -2.7787545, y: 0.52729046}
+  m_UseDelaunayMesh: 1
