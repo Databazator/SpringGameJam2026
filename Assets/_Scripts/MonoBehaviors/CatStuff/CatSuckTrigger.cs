@@ -20,8 +20,10 @@ public class CatSuckTrigger : MonoBehaviour
 
 	public void StopCatSucker()
 	{
+		Debug.Log("Stop Cucker command");
 		if(_catSucker != null)
 		{
+			Debug.Log("STOPPING Cat Sucker!");
 			StopCoroutine(_catSucker);
 			_catSucker = null;
 		}	
@@ -29,6 +31,7 @@ public class CatSuckTrigger : MonoBehaviour
 
 	IEnumerator _steerCatToDestination(Rigidbody2D cat)
 	{
+		Debug.Log("STARTING Cat Sucker.");
 		while (true)
 		{
 			var positionDelta = _destination.position - cat.transform.position;

@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     public int LivesCount = 9;
     private int _lives;
 
+    private int _catCount;
+    private int _catsCaught;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour
             StartGame();
         }
 
-       
+        
     }
 
     void LoadCatsIntoQueue()
@@ -90,12 +93,23 @@ public class GameManager : MonoBehaviour
 
         LoadCatsIntoQueue();
 
+        if(CatQueue != null)
+        {
+            _catCount = CatQueue.Cats.Count;
+        }
+        _catsCaught = 0;
+
         SetState(GameState.LoadingCat);
     }
 
     public void CatLoaded()
     {
         SetState(GameState.Launch);
+    }
+
+    public void CatLandedInBox()
+    {
+        SetState(GameState.LoadingCat);
     }
 
     private void SetState(GameState state)
@@ -111,7 +125,7 @@ public class GameManager : MonoBehaviour
             TrebuchetLoadCam.Priority = 10;
             FocusGroupCam.Priority = 0;
 
-            DOVirtual.DelayedCall(CatLoadStateEnterLogicDelay + 5f, () =>
+            DOVirtual.DelayedCall(CatLoadStateEnterLogicDelay, () =>
             {
                 var c = CatQueue.DequeueCat();
                 Shooter.SetCatAsProjectile(c);
