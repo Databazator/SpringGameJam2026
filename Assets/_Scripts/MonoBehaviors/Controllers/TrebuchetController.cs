@@ -72,11 +72,8 @@ public class TrebuchetController : MonoBehaviour
         }
 
         shooterController = GetComponentInChildren<ShooterController>();
-        if (shooterController.Projectile != null)
-        {
-            shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
-            shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
-        }
+        shooterController.OnProjectileLaunched.AddListener(Shooter_OnProjectileLaunched);
+        shooterController.OnProjectileReset.AddListener(Shooter_OnProjectileReset);
     }
 
     /// <summary>
