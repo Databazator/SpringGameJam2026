@@ -2,6 +2,7 @@ using DG.Tweening;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,6 +34,9 @@ public class GameManager : MonoBehaviour
     public CinemachineCamera TrebuchetLoadCam;
     public CinemachineCamera FocusGroupCam;
 
+    [SerializeField]
+    private CinemachineTargetAdder CameraFocusAdder;
+
     [Header("State Timing")]
     public float CatLoadStateEnterLogicDelay = 2f; // wait for camera tween to resolve before doing stuff
 
@@ -41,6 +45,12 @@ public class GameManager : MonoBehaviour
 
     private int _catCount;
     private int _catsCaught;
+
+    /// <summary>
+    /// Occurs when cat is changed.
+    /// </summary>
+    [field: SerializeField]
+    public UnityEvent<GameObject> OnCatChanged { get; private set; } = new();
 
     private void Awake()
     {
@@ -131,6 +141,10 @@ public class GameManager : MonoBehaviour
                 Shooter.SetCatAsProjectile(c);
                 TrebuchetAnimEvents.ProjectileTransform = c.transform;
                 Trebuchet.Cat = c.gameObject;
+                OnCatChanged.Invoke(c.gameObject);
+                CameraFocusAdder.AddMember(c.transform);
+
+                Debug.Log("Cat Changed");
             });
         }
         else if (currentState == GameState.Launch)
