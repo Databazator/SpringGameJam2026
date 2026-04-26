@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private CinemachineTargetAdder CameraFocusAdder;
+    public CinemachineTargetGroup TargetGroup;
+
+    public Transform FocusGroupStartTarget1;
+    public Transform FocusGroupStartTarget2;
 
     [Header("State Timing")]
     public float CatLoadStateEnterLogicDelay = 2f; // wait for camera tween to resolve before doing stuff
@@ -77,7 +81,9 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-        
+
+
+
     }
 
     void LoadCatsIntoQueue()
@@ -106,15 +112,23 @@ public class GameManager : MonoBehaviour
 
         LoadCatsIntoQueue();
 
-        if(CatQueue != null)
+        if (CatQueue != null)
         {
             _catCount = CatQueue.Cats.Count;
         }
         _catsCaught = 0;
 
-        SetState(GameState.LoadingCat);
 
-        Debug.Log("Start Game Called");
+        DOVirtual.DelayedCall(1.5f, () =>
+        {
+            TargetGroup.Targets.Clear();
+            TargetGroup.AddMember(FocusGroupStartTarget1, 1, 1);
+            TargetGroup.AddMember(FocusGroupStartTarget2, 1, 1);
+
+            SetState(GameState.LoadingCat);
+
+            Debug.Log("Start Game Called");
+        });
     }
 
     public void CatLoaded()
@@ -127,7 +141,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cat Landed in a Box! Huzzah");
 
         _catsCaught++;
-        if(CatQueue.Empty() && _catsCaught == _catCount) // all cats made it -> Victory screen
+        if (CatQueue.Empty() && _catsCaught == _catCount) // all cats made it -> Victory screen
         {
             UIManager.ShowVictoryScreen();
             return;
@@ -159,7 +173,7 @@ public class GameManager : MonoBehaviour
                 {
                     Trebuchet.Cat = c.gameObject;
                     Shooter.SetCatAsProjectile(c);
-                    TrebuchetAnimEvents.ProjectileTransform = c.transform;                    
+                    TrebuchetAnimEvents.ProjectileTransform = c.transform;
                     OnCatChanged.Invoke(c.gameObject);
                     CameraFocusAdder.AddMember(c.transform);
 

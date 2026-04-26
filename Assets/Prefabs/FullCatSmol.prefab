@@ -197,7 +197,7 @@ MonoBehaviour:
   _airNudgeCooldown: 0.75
   _airNudgeScalePopMult: 0.75
   _airNudgeScalePopDuration: 0.5
-  _airNudgeHorVelocityMult: 0.85
+  _airNudgeHorVelocityMult: 0.8
   HasAirControl: 1
 --- !u!114 &2107796970643798272
 MonoBehaviour:
