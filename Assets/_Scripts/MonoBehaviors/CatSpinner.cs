@@ -159,6 +159,12 @@ public class CatSpinner : MonoBehaviour
     public void SetPreparation(float intensity) => (this._currentState, this._preparationIntensity) = (CurrentState.Preparation, intensity);
     public void SetFlying() => this._currentState = CurrentState.Flying;
     
+    public void ResetTransform()
+    {
+        CatVisualPivot.localPosition = Vector2.zero.Extend(CatVisualPivot.localPosition.z);
+        CatVisualPivot.localRotation = Quaternion.identity;
+    }
+
     public void StartSpinSequence()
     {
 		Sequence spinSeq = DOTween.Sequence().PrependCallback(() => this.StartSpin())

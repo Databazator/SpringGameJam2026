@@ -1176,6 +1176,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnIsWalking:
+    m_PersistentCalls:
+      m_Calls: []
   HasControl: 1
   ChestHitboxTransform: {fileID: 3675641110793193871}
   ChestHitboxPositionTrack: {fileID: 9215770335546067646}
@@ -1627,7 +1630,7 @@ GameObject:
   - component: {fileID: 4865899443999413898}
   - component: {fileID: 3752014050803208436}
   - component: {fileID: 591601331563819660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CatEnterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
