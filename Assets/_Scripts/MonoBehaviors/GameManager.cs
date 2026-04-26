@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cat Landed in a Box! Huzzah");
 
         _catsCaught++;
-        if (CatQueue.Empty() && _catsCaught/2f == _catCount) // all cats made it -> Victory screen
+        if (_catsCaught >= 5) // all cats made it -> Victory screen
         {
             UIManager.ShowVictoryScreen();
             return;

@@ -66,6 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowVictoryScreen()
     {
+        Debug.Log("Showing VICTORY SCREEN!", this);
         InputEnabled = false;
         DOVirtual.DelayedCall(1f, () => InputEnabled = true);
         ShowScreen(VictoryScreen);
