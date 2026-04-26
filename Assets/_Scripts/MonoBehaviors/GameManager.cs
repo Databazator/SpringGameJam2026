@@ -121,6 +121,8 @@ public class GameManager : MonoBehaviour
 
     public void CatLandedInBox()
     {
+        Debug.Log("Cat Landed in a Box! Huzzah");
+
         _catsCaught++;
         if(CatQueue.Empty() && _catsCaught == _catCount) // all cats made it -> Victory screen
         {
@@ -149,13 +151,17 @@ public class GameManager : MonoBehaviour
             DOVirtual.DelayedCall(CatLoadStateEnterLogicDelay, () =>
             {
                 var c = CatQueue.DequeueCat();
-                Shooter.SetCatAsProjectile(c);
-                TrebuchetAnimEvents.ProjectileTransform = c.transform;
-                Trebuchet.Cat = c.gameObject;
-                OnCatChanged.Invoke(c.gameObject);
-                CameraFocusAdder.AddMember(c.transform);
+                // setup trebuchet and shooter refs after cat loading tween finishes
+                DOVirtual.DelayedCall(CatQueue.RepositionDuration, () =>
+                {
+                    Shooter.SetCatAsProjectile(c);
+                    TrebuchetAnimEvents.ProjectileTransform = c.transform;
+                    Trebuchet.Cat = c.gameObject;
+                    OnCatChanged.Invoke(c.gameObject);
+                    CameraFocusAdder.AddMember(c.transform);
 
-                Debug.Log("Cat Changed");
+                    Debug.Log("Cat Changed");
+                });
             });
         }
         else if (currentState == GameState.Launch)

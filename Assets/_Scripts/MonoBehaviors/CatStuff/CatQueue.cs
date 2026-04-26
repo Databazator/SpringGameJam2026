@@ -12,6 +12,7 @@ public class CatQueue : MonoBehaviour
 
     [SerializeField] private Vector3 _positionOffsets;
     [SerializeField] private float _repositionDuration;
+    public float RepositionDuration => _repositionDuration;
     [SerializeField] private float _repositionRandomOffset;
     [SerializeField] private float _positionXRandomOffset;
 
@@ -74,8 +75,8 @@ public class CatQueue : MonoBehaviour
             Sequence seq = DOTween.Sequence();
 
             seq.PrependInterval(delay);
-            seq.Append(c.transform.DOShakeRotation(_repositionDuration, 25, 20));
-            seq.Append(c.transform.DOMove(GetQueuePosForIndex(index), _repositionDuration).SetEase(Ease.InOutQuad));
+            seq.Append(c.transform.DOShakeRotation(_repositionDuration, 25, 20))
+            .Join(c.transform.DOMove(GetQueuePosForIndex(index), _repositionDuration).SetEase(Ease.InOutQuad));
 
             index++;
         }
