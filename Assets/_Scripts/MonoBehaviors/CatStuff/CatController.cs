@@ -86,7 +86,7 @@ public class CatController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Environment"))
         {
             Debug.Log("Cat Death");
             OnDeath.Invoke();

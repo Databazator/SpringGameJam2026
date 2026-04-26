@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6986740619363967151}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BoxCatcherParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 1941357398028185111}
   - component: {fileID: 3074531225418388801}
   - component: {fileID: 8071275780872585895}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SuckTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2211226303423465170}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1045,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7397462758184762486}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 5270562241701302233}
   - component: {fileID: 7149480858881262016}
   - component: {fileID: 6745379114515549138}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BoxCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3675641110793193871}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ChestHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 4865899443999413898}
   - component: {fileID: 3752014050803208436}
   - component: {fileID: 591601331563819660}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CatEnterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,7 +1740,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 10}
-  m_Radius: 50
+  m_Radius: 102.70729
 --- !u!114 &2026178848918976334
 MonoBehaviour:
   m_ObjectHideFlags: 0
