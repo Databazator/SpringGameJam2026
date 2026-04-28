@@ -81,9 +81,6 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
-
-
-
     }
 
     void LoadCatsIntoQueue()
@@ -140,7 +137,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cat Landed in a Box! Huzzah");
 
         _catsCaught++;
-        if (_catsCaught >= 5) // all cats made it -> Victory screen
+        if (_catsCaught >= _catCount) // all cats made it -> Victory screen
         {
             UIManager.ShowVictoryScreen();
             return;
